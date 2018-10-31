@@ -12,9 +12,8 @@ fun mapModelToViewModel(list: List<RepoModel>): List<RepoViewModel> = list.map {
 fun getStringFromNumber(repoModel: RepoModel) = NumberFormat.getIntegerInstance().format(repoModel.stargazers_count)!!
 
 fun getTimeSinceCreated(repoModel: RepoModel): String {
-    // createdAt: 2008-04-21T18:13:39Z
     val formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ")
-    val createdUtc = formatter.parseDateTime(repoModel.created_at)
+    val createdUtc = formatter.parseDateTime(repoModel.created_at)  // createdAt: '2008-04-21T18:13:39Z'
     val createdLocal = createdUtc.withZone(DateTimeZone.getDefault())
     val nowLocal = DateTime()
     val period = Period(createdLocal, nowLocal)
@@ -63,9 +62,6 @@ fun getTimeSinceCreated(repoModel: RepoModel): String {
         .appendSeconds()
         .appendSuffix(" second", " seconds")
         .toFormatter()
-
-    // return period.toString()
-    // return PeriodFormat.getDefault().print(period)
 
     if (period.years > 0)
         return yearsMonths.print(period)

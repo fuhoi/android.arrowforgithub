@@ -8,16 +8,22 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_main_repo_view_model.view.*
 
 class RepoViewModelRecyclerViewAdapter(
-    private val mValues: List<RepoViewModel>,
-    private val mListener: MainActivity.OnListFragmentInteractionListenerRepoViewModel?
+    values: List<RepoViewModel>,
+    private val listener: MainFragment.RepoViewModelListener?
 ) : RecyclerView.Adapter<RepoViewModelRecyclerViewAdapter.ViewHolder>() {
 
-    private val mOnClickListener: View.OnClickListener
+    var values: List<RepoViewModel> = values
+        set(values) {
+            field = values
+            notifyDataSetChanged()
+        }
+
+    private val onClickListener: View.OnClickListener
 
     init {
-        mOnClickListener = View.OnClickListener { v ->
+        onClickListener = View.OnClickListener { v ->
             val viewModel = v.tag as RepoViewModel
-            mListener?.onListFragmentInteraction(viewModel)
+            listener?.onItemClick(viewModel)
         }
     }
 
@@ -27,25 +33,25 @@ class RepoViewModelRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val viewModel = mValues[position]
+        val viewModel = values[position]
 
-        holder.mName.text = viewModel.name
-        holder.mFork.text = viewModel.fork
-        holder.mTimeSinceCreated.text = viewModel.timeSinceCreated
-        holder.mStargazersCount.text = viewModel.stargazersCount
+        holder.name.text = viewModel.name
+        holder.fork.text = viewModel.fork
+        holder.timeSinceCreated.text = viewModel.timeSinceCreated
+        holder.stargazersCount.text = viewModel.stargazersCount
 
-        with(holder.mView) {
+        with(holder.view) {
             tag = viewModel
-            setOnClickListener(mOnClickListener)
+            setOnClickListener(onClickListener)
         }
     }
 
-    override fun getItemCount(): Int = mValues.size
+    override fun getItemCount(): Int = values.size
 
-    inner class ViewHolder(val mView: View) : RecyclerView.ViewHolder(mView) {
-        val mName:TextView = mView.name
-        val mFork: TextView = mView.fork
-        val mTimeSinceCreated: TextView = mView.timeSinceCreated
-        val mStargazersCount: TextView = mView.stargazersCount
+    inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+        val name:TextView = view.name
+        val fork: TextView = view.fork
+        val timeSinceCreated: TextView = view.timeSinceCreated
+        val stargazersCount: TextView = view.stargazersCount
     }
 }
