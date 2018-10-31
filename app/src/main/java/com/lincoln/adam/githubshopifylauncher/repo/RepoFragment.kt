@@ -67,7 +67,7 @@ class RepoFragment : Fragment(), RepoContract.View {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_refresh -> {
-                presenter.loadRepos(false)
+                presenter.loadRepos(true)
                 return true
             }
         }

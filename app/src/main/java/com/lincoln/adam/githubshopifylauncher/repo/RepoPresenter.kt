@@ -41,6 +41,10 @@ class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContra
                 val repoViewModelList = mapRepoModelToRepoViewModel(repoList)
                 processRepos(repoViewModelList)
             }
+
+            override fun onDataNotAvailable() {
+                TODO("not implemented")
+            }
         })
     }
 

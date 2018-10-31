@@ -1,5 +1,6 @@
 package com.lincoln.adam.githubshopifylauncher.data.source.remote
 
+import com.lincoln.adam.githubshopifylauncher.BuildConfig
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
 import retrofit2.Call
@@ -7,6 +8,12 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+
+
+
+
 
 class RepoRemoteDataSource : RepoDataSource {
 
@@ -17,20 +24,46 @@ class RepoRemoteDataSource : RepoDataSource {
 
         private var INSTANCE: RepoRemoteDataSource? = null
 
-        @JvmStatic fun getInstance(): RepoRemoteDataSource {
-            return INSTANCE ?: RepoRemoteDataSource().apply { INSTANCE = this }
+        @JvmStatic
+        fun getInstance(): RepoRemoteDataSource {
+            if (INSTANCE == null) {
+                synchronized(RepoRemoteDataSource::javaClass) {
+                    if (INSTANCE == null) {
+                        INSTANCE = RepoRemoteDataSource()
+                    }
+                }
+            }
+            return INSTANCE!!
         }
     }
 
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(GITHUB_BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    private val REPO_SERVICE_DATA = LinkedHashMap<Int, RepoModel>(0)
 
-    private val service = retrofit.create(GitHubService::class.java)
+    private val httpClient: OkHttpClient
+    private val retrofit: Retrofit
+    private val gitHubService: GitHubService
+
+    init {
+        val logging = HttpLoggingInterceptor()
+        logging.level = HttpLoggingInterceptor.Level.BASIC
+
+        val builder = OkHttpClient.Builder()
+        if (BuildConfig.DEBUG)
+            builder.addInterceptor(logging)
+
+        httpClient = builder.build()
+
+        retrofit = Retrofit.Builder()
+            .baseUrl(GITHUB_BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(httpClient)
+            .build()
+
+        gitHubService = retrofit.create(GitHubService::class.java)
+    }
 
     override fun getRepos(repoCallback: RepoDataSource.RepoCallback) {
-        val call = service.getRepos(GITHUB_ORG_NAME)
+        val call = gitHubService.getRepos(GITHUB_ORG_NAME)
         call.enqueue(object : Callback<List<RepoModel>> {
             override fun onResponse(call: Call<List<RepoModel>>, response: Response<List<RepoModel>>) {
                 val modelList = response.body()!!
@@ -44,6 +77,14 @@ class RepoRemoteDataSource : RepoDataSource {
     }
 
     override fun refreshRepos() {
-        // N/A
+        // N/A - Implemented by RepoRepository.
+    }
+
+    override fun saveRepo(repo: RepoModel) {
+        REPO_SERVICE_DATA[repo.id] = repo
+    }
+
+    override fun deleteAllRepos() {
+        REPO_SERVICE_DATA.clear()
     }
 }
