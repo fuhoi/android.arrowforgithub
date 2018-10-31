@@ -1,20 +1,21 @@
-package com.lincoln.adam.githubshopifylauncher
+package com.lincoln.adam.githubshopifylauncher.repo
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import kotlinx.android.synthetic.main.fragment_main_repo_view_model.view.*
+import com.lincoln.adam.githubshopifylauncher.R
+import kotlinx.android.synthetic.main.fragment_repo_item.view.*
 
-class RepoViewModelRecyclerViewAdapter(
-    values: List<RepoViewModel>,
-    private val listener: MainFragment.RepoViewModelListener?
-) : RecyclerView.Adapter<RepoViewModelRecyclerViewAdapter.ViewHolder>() {
+class RepoAdapter(
+    repoList: List<RepoViewModel>,
+    private val listener: RepoFragment.RepoListener?
+) : RecyclerView.Adapter<RepoAdapter.ViewHolder>() {
 
-    var values: List<RepoViewModel> = values
-        set(values) {
-            field = values
+    var repoList: List<RepoViewModel> = repoList
+        set(repoList) {
+            field = repoList
             notifyDataSetChanged()
         }
 
@@ -23,17 +24,17 @@ class RepoViewModelRecyclerViewAdapter(
     init {
         onClickListener = View.OnClickListener { v ->
             val viewModel = v.tag as RepoViewModel
-            listener?.onItemClick(viewModel)
+            listener?.onRepoClick(viewModel)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_main_repo_view_model, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_repo_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val viewModel = values[position]
+        val viewModel = repoList[position]
 
         holder.name.text = viewModel.name
         holder.fork.text = viewModel.fork
@@ -46,7 +47,7 @@ class RepoViewModelRecyclerViewAdapter(
         }
     }
 
-    override fun getItemCount(): Int = values.size
+    override fun getItemCount(): Int = repoList.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val name:TextView = view.name

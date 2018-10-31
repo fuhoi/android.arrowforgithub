@@ -1,5 +1,7 @@
-package com.lincoln.adam.githubshopifylauncher
+package com.lincoln.adam.githubshopifylauncher.util
 
+import com.lincoln.adam.githubshopifylauncher.repo.RepoViewModel
+import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.Period
@@ -7,13 +9,21 @@ import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.PeriodFormatterBuilder
 import java.text.NumberFormat
 
-fun mapModelToViewModel(list: List<RepoModel>): List<RepoViewModel> = list.map { RepoViewModel(it) }
+fun mapRepoModelToRepoViewModel(repoList: List<RepoModel>): List<RepoViewModel> = repoList.map {
+    RepoViewModel(
+        it.id.toString(),
+        it.name,
+        "Fork: ${it.fork}",
+        "Stargazers: ${getStringFromNumber(it.stargazers_count)}",
+        "Created: ${getTimeSinceString(it.created_at)} ago",
+        it.html_url)
+}
 
-fun getStringFromNumber(repoModel: RepoModel) = NumberFormat.getIntegerInstance().format(repoModel.stargazers_count)!!
+fun getStringFromNumber(number: Int) = NumberFormat.getIntegerInstance().format(number)!!
 
-fun getTimeSinceCreated(repoModel: RepoModel): String {
-    val formatter = DateTimeFormat.forPattern("yyyy-MM-dd'T'HH:mm:ssZ")
-    val createdUtc = formatter.parseDateTime(repoModel.created_at)  // createdAt: '2008-04-21T18:13:39Z'
+fun getTimeSinceString(dateTimeString: String, pattern: String = "yyyy-MM-dd'T'HH:mm:ssZ"): String {
+    val formatter = DateTimeFormat.forPattern(pattern)
+    val createdUtc = formatter.parseDateTime(dateTimeString)  // createdAt: '2008-04-21T18:13:39Z'
     val createdLocal = createdUtc.withZone(DateTimeZone.getDefault())
     val nowLocal = DateTime()
     val period = Period(createdLocal, nowLocal)
