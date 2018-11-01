@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">GitHub Shopify Launcher</string>
+    <string name="app_name">Shopify GitHub Launcher</string>
+    <string name="title_activity_main">GitHub Launcher</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_refresh">Force Web Refresh</string>
+    <string name="loading">Loading...</string>
 </resources>
