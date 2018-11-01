@@ -2,7 +2,7 @@
 
 A demostration app with a single recycler view, displays public repositories for the Shopify organisation using the Github Developer API.
 
-![](intro.webm)
+[![android.github.shopify.intro](http://img.youtube.com/vi/Hhfyuh0fflE/0.jpg)](https://youtu.be/Hhfyuh0fflE "android.github.shopify.intro")
 
 The recycler view displays the following information:
 
