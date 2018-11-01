@@ -1,6 +1,6 @@
 # android.github.shopify
 
-A demostration app with a single recycler view, displays public repositories for the Shopify organisation using the Github Developer API.
+A demostration app with a single recycler view, displaying public repositories for the Shopify organisation using the Github Developer API.
 
 ![](intro.gif)
 
@@ -12,16 +12,16 @@ The recycler view displays the following information:
 * Time since it was created
 * An interaction on the row which opens the user's browser to the repository's page
 
-Additional goals:
+Goals:
 
 * Solve the problem using Android (Kotlin preferred)
 * Retrofit
 * Back the recycler view with some type of cache or persistence layer
-* Architecture pattern
+* Use an architecture pattern
 
 # Architecture Pattern
 
-The architectural pattern chosen was Model-View-Presenter (MVP) as a balance between existing knowledge and speed to a minimum viable product.
+The architectural pattern chosen was Model-View-Presenter (MVP) as a balance between separation of concerns, existing knowledge and speed to a minimum viable product.
 
 # Libraries
 
@@ -39,14 +39,12 @@ Google:
 
 # Resources
 
-* Shopify on GitHub <https://github.com/Shopify>
-* GitHub Developer <https://developer.github.com>
-* Shopify Repositories via GitHub Developer API <https://api.github.com/orgs/shopify/repos>
-* Postman <https://www.getpostman.com/>
-    * See `.\docs\postman.request.json` and `.\docs\postman.response.json`
-* https://github.com/googlesamples/android-architecture
-* https://github.com/googlesamples/android-sunflower
-* https://github.com/chrisbanes/cheesesquare
-* https://github.com/futurice/android-best-practices
-* https://github.com/xxv/android-lifecycle
-* https://blog.github.com/2018-06-29-GIF-that-keeps-on-GIFing/
+* [Shopify on GitHub](https://github.com/Shopify)
+* [GitHub Developer](https://developer.github.com)
+* [Shopify Repositories via GitHub Developer API](https://api.github.com/orgs/shopify/repos)
+* [Postman](https://www.getpostman.com/)
+* [Android Architecture Blueprints](https://github.com/googlesamples/android-architecture)
+* [Android Sunflower](https://github.com/googlesamples/android-sunflower)
+* [Cheesesquare Sample](https://github.com/chrisbanes/cheesesquare)
+* [Best practices in Android development](https://github.com/futurice/android-best-practices)
+* [Complete Android Fragment & Activity Lifecycle](https://github.com/xxv/android-lifecycle)
