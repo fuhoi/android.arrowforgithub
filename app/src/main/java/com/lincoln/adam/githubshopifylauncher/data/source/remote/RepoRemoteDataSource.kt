@@ -3,17 +3,13 @@ package com.lincoln.adam.githubshopifylauncher.data.source.remote
 import com.lincoln.adam.githubshopifylauncher.BuildConfig
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-
-
-
-
 
 class RepoRemoteDataSource : RepoDataSource {
 
@@ -37,19 +33,18 @@ class RepoRemoteDataSource : RepoDataSource {
         }
     }
 
-    private val REPO_SERVICE_DATA = LinkedHashMap<Int, RepoModel>(0)
-
+    private val repoCache = LinkedHashMap<Int, RepoModel>(0)
     private val httpClient: OkHttpClient
     private val retrofit: Retrofit
     private val gitHubService: GitHubService
 
     init {
-        val logging = HttpLoggingInterceptor()
-        logging.level = HttpLoggingInterceptor.Level.BASIC
-
         val builder = OkHttpClient.Builder()
-        if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG) {
+            val logging = HttpLoggingInterceptor()
+            logging.level = HttpLoggingInterceptor.Level.BASIC
             builder.addInterceptor(logging)
+        }
 
         httpClient = builder.build()
 
@@ -71,7 +66,7 @@ class RepoRemoteDataSource : RepoDataSource {
             }
 
             override fun onFailure(call: Call<List<RepoModel>>, t: Throwable) {
-                t.printStackTrace()
+                TODO("not implemented")
             }
         })
     }
@@ -81,10 +76,10 @@ class RepoRemoteDataSource : RepoDataSource {
     }
 
     override fun saveRepo(repo: RepoModel) {
-        REPO_SERVICE_DATA[repo.id] = repo
+        repoCache[repo.id] = repo
     }
 
     override fun deleteAllRepos() {
-        REPO_SERVICE_DATA.clear()
+        repoCache.clear()
     }
 }

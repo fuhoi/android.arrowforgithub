@@ -1,8 +1,8 @@
 package com.lincoln.adam.githubshopifylauncher.repo
 
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
-import com.lincoln.adam.githubshopifylauncher.data.source.RepoRepository
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
+import com.lincoln.adam.githubshopifylauncher.data.source.RepoRepository
 import com.lincoln.adam.githubshopifylauncher.util.mapRepoModelToRepoViewModel
 
 class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContract.View) : RepoContract.Presenter {
@@ -31,7 +31,7 @@ class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContra
 
         repoRepository.getRepos(object : RepoDataSource.RepoCallback {
             override fun onLoaded(repoList: List<RepoModel>) {
-                // The view may not be able to handle UI updates anymore
+                // The view may not be able to handle UI updates anymore.
                 if (!repoView.isActive)
                     return
 

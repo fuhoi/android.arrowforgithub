@@ -1,7 +1,7 @@
 package com.lincoln.adam.githubshopifylauncher
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.lincoln.adam.githubshopifylauncher.repo.RepoFragment
 import com.lincoln.adam.githubshopifylauncher.repo.RepoPresenter
 import com.lincoln.adam.githubshopifylauncher.util.Injection

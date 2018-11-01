@@ -1,7 +1,7 @@
 package com.lincoln.adam.githubshopifylauncher.util
 
-import com.lincoln.adam.githubshopifylauncher.repo.RepoViewModel
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
+import com.lincoln.adam.githubshopifylauncher.repo.RepoViewModel
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.Period
@@ -13,7 +13,7 @@ fun mapRepoModelToRepoViewModel(repoList: List<RepoModel>): List<RepoViewModel> 
     RepoViewModel(
         it.id.toString(),
         it.name,
-        "Fork: ${it.fork}",
+        "Is fork: ${ if (it.fork) "Yes" else "No" }",
         "Stargazers: ${getStringFromNumber(it.stargazers_count)}",
         "Created: ${getTimeSinceString(it.created_at)} ago",
         it.html_url)

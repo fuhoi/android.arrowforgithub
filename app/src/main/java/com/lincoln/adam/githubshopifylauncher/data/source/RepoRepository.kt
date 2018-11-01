@@ -16,27 +16,22 @@ class RepoRepository(
         }
     }
 
-    var cachedRepos: LinkedHashMap<Int, RepoModel> = LinkedHashMap()
+    private val cachedRepos: LinkedHashMap<Int, RepoModel> = LinkedHashMap()
 
-    var cacheIsDirty = false
+    private var cacheIsDirty = false
 
     override fun getRepos(repoCallback: RepoDataSource.RepoCallback) {
-        println("getRepos - Start - cacheIsDirty: $cacheIsDirty")
-
-        // Respond immediately with cache if available and not dirty
+        // Respond immediately with cache if available and not dirty.
         if (cachedRepos.isNotEmpty() && !cacheIsDirty) {
             repoCallback.onLoaded(ArrayList(cachedRepos.values))
-            println("getRepos - Returning from cache")
             return
         }
 
         if (cacheIsDirty) {
             // If the cache is dirty we need to fetch new data from the network.
-            println("getRepos - Calling getReposFromRemoteDataSource")
             getReposFromRemoteDataSource(repoCallback)
         } else {
             // Query the local storage if available. If not, query the network.
-            println("getRepos - Checking repoLocalDataSource")
             repoLocalDataSource.getRepos(object : RepoDataSource.RepoCallback {
                 override fun onLoaded(repoList: List<RepoModel>) {
                     refreshCache(repoList)
@@ -48,31 +43,23 @@ class RepoRepository(
                 }
             })
         }
-
-        println("getRepos - End")
     }
 
     private fun refreshCache(repoList: List<RepoModel>) {
         cachedRepos.clear()
-        repoList.forEach {
-            cacheAndPerform(it) {}
-        }
+        repoList.forEach { it -> cacheAndPerform(it) {} }
         cacheIsDirty = false
     }
 
     private inline fun cacheAndPerform(repoModel: RepoModel, perform: (RepoModel) -> Unit) {
         val cachedTask = RepoModel(repoModel.id, repoModel.name, repoModel.fork, repoModel.created_at, repoModel.stargazers_count, repoModel.html_url)
-        cachedRepos.put(cachedTask.id, cachedTask)
+        cachedRepos[cachedTask.id] = cachedTask
         perform(cachedTask)
     }
 
     private fun getReposFromRemoteDataSource(repoCallback: RepoDataSource.RepoCallback) {
-        println("getReposFromRemoteDataSource - Start")
-
         repoRemoteDataSource.getRepos(object : RepoDataSource.RepoCallback {
             override fun onLoaded(repoList: List<RepoModel>) {
-                // repoCallback.onLoaded(ArrayList(repoList))
-
                 refreshCache(repoList)
                 refreshLocalDataSource(repoList)
                 repoCallback.onLoaded(ArrayList(cachedRepos.values))
@@ -82,15 +69,11 @@ class RepoRepository(
                 repoCallback.onDataNotAvailable()
             }
         })
-
-        println("getReposFromRemoteDataSource - End")
     }
 
     private fun refreshLocalDataSource(repoList: List<RepoModel>) {
         repoLocalDataSource.deleteAllRepos()
-        for (repo in repoList) {
-            repoLocalDataSource.saveRepo(repo)
-        }
+        repoList.forEach { repo -> repoLocalDataSource.saveRepo(repo) }
     }
 
     override fun refreshRepos() {
@@ -98,7 +81,7 @@ class RepoRepository(
     }
 
     override fun saveRepo(repo: RepoModel) {
-        // Do in memory cache update to keep the app UI up to date
+        // Do in memory cache update to keep the app UI up to date.
         cacheAndPerform(repo) {
             repoRemoteDataSource.saveRepo(it)
             repoLocalDataSource.saveRepo(it)

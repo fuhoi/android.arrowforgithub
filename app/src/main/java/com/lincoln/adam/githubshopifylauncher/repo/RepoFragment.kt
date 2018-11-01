@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.view.*
 import com.lincoln.adam.githubshopifylauncher.R
 import kotlinx.android.synthetic.main.fragment_repo.*
@@ -48,6 +49,7 @@ class RepoFragment : Fragment(), RepoContract.View {
 
         with(root) {
             recyclerView.adapter = repoAdapter
+            recyclerView.addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
             swipeRefreshLayout.setOnRefreshListener { presenter.loadRepos(false) }
         }
 

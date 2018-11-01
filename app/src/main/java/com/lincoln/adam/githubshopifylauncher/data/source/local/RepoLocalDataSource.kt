@@ -5,8 +5,8 @@ import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
 import com.lincoln.adam.githubshopifylauncher.util.AppExecutors
 
 class RepoLocalDataSource private constructor(
-    val appExecutors: AppExecutors,
-    val repoDao: RepoDao
+    private val appExecutors: AppExecutors,
+    private val repoDao: RepoDao
 ) : RepoDataSource {
 
     companion object {
