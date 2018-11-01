@@ -11,8 +11,16 @@ class RepoRepository(
 
         private var INSTANCE: RepoRepository? = null
 
-        @JvmStatic fun getInstance(repoRemoteDataSource: RepoDataSource, repoLocalDataSource: RepoDataSource): RepoRepository {
-            return INSTANCE ?: RepoRepository(repoRemoteDataSource, repoLocalDataSource).apply { INSTANCE = this }
+        @JvmStatic
+        fun getInstance(repoRemoteDataSource: RepoDataSource, repoLocalDataSource: RepoDataSource): RepoRepository {
+            if (INSTANCE == null) {
+                synchronized(RepoRepository::javaClass) {
+                    if (INSTANCE == null) {
+                        INSTANCE = RepoRepository(repoRemoteDataSource, repoLocalDataSource)
+                    }
+                }
+            }
+            return INSTANCE!!
         }
     }
 

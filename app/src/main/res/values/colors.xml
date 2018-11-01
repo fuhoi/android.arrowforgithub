@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Shopify Green #8BC34A-->
     <color name="colorPrimary">#30373B</color>
     <color name="colorPrimaryDark">#282e31</color>
     <color name="colorAccent">#8BC34A</color>
-
-    <!--<color name="colorPrimary">#8BC34A</color>-->
-    <!--<color name="colorPrimaryDark">#5A9216</color>-->
-    <!--<color name="colorAccent">#8BC34A</color>-->
 </resources>

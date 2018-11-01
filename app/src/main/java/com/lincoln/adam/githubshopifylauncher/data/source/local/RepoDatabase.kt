@@ -15,18 +15,20 @@ abstract class RepoDatabase : RoomDatabase() {
 
         private var INSTANCE: RepoDatabase? = null
 
-        private val lock = Any()
-
+        @JvmStatic
         fun getInstance(context: Context): RepoDatabase {
-            synchronized(lock) {
-                if (INSTANCE == null) {
-                    INSTANCE = Room.databaseBuilder(
-                        context.applicationContext,
-                        RepoDatabase::class.java, "Repo.db")
-                        .build()
+            if (INSTANCE == null) {
+                synchronized(RepoDatabase::javaClass) {
+                    if (INSTANCE == null) {
+                        INSTANCE = Room.databaseBuilder(
+                            context.applicationContext,
+                            RepoDatabase::class.java,
+                            "Repo.db")
+                            .build()
+                    }
                 }
-                return INSTANCE!!
             }
+            return INSTANCE!!
         }
     }
 
