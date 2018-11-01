@@ -58,6 +58,8 @@ Google:
 * [GitHub Developer](https://developer.github.com)
 * [Shopify Repositories via GitHub Developer API](https://api.github.com/orgs/shopify/repos)
 * [Postman](https://www.getpostman.com/)
+* [Android Jetpack](https://developer.android.com/jetpack/)
+* [Android Jetpack - Guide to app architecture](https://developer.android.com/jetpack/docs/guide)
 * [Android Architecture Blueprints](https://github.com/googlesamples/android-architecture)
 * [Android Sunflower](https://github.com/googlesamples/android-sunflower)
 * [Cheesesquare Sample](https://github.com/chrisbanes/cheesesquare)
