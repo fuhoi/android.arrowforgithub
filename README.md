@@ -42,7 +42,15 @@ Google:
 * Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
 * Clean - implement use cases and separate layers into data / domain / presentation
-* Items - Revamp the styling of list items, add the stargazers icon and maybe the forked from text (from GitHub)
+* List items - Revamp the styling of list items, add the stargazers icon and maybe the forked from text (from GitHub)
+* Filter - who doesn't love a magnifying glass in their toolbar?
+* Sort - Sort by fields displayed
+* Unit tests
+* Developed for Pixel 2 API 27 - test for more devices / screen sizes / API levels
+* Tablet mode
+* Review Lint report
+* Provide support for signing keys
+* Docker image for CI/CD
 
 # Resources
 
