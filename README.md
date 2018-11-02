@@ -48,9 +48,13 @@ Google:
 * Unit tests
 * Developed for Pixel 2 API 27 - test for more devices / screen sizes / API levels
 * Tablet mode
+* Configuration changes (orientation)
 * Review Lint report
 * Provide support for signing keys
 * Docker image for CI/CD
+* Event bus for highlighting source of data with a snackbar - `Loaded from <source> | OK`
+* Separate memory / disk (room) / web layers with a status indicator of where the data is and it's size
+* Add thread executor for background tasks like mapping - might be solved with Rx
 
 # Resources
 
