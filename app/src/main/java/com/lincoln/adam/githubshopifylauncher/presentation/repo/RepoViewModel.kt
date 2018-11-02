@@ -1,4 +1,4 @@
-package com.lincoln.adam.githubshopifylauncher.repo
+package com.lincoln.adam.githubshopifylauncher.presentation.repo
 
 import android.arch.lifecycle.ViewModel
 

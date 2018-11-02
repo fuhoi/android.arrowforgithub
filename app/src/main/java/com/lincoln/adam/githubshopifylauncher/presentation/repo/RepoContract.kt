@@ -1,7 +1,7 @@
-package com.lincoln.adam.githubshopifylauncher.repo
+package com.lincoln.adam.githubshopifylauncher.presentation.repo
 
-import com.lincoln.adam.githubshopifylauncher.BasePresenter
-import com.lincoln.adam.githubshopifylauncher.BaseView
+import com.lincoln.adam.githubshopifylauncher.presentation.BasePresenter
+import com.lincoln.adam.githubshopifylauncher.presentation.BaseView
 
 interface RepoContract {
 

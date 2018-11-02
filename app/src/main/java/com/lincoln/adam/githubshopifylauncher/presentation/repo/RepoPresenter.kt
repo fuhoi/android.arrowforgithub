@@ -1,9 +1,9 @@
-package com.lincoln.adam.githubshopifylauncher.repo
+package com.lincoln.adam.githubshopifylauncher.presentation.repo
 
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoRepository
-import com.lincoln.adam.githubshopifylauncher.util.mapRepoModelToRepoViewModel
+import com.lincoln.adam.githubshopifylauncher.presentation.util.mapRepoModelToRepoViewModel
 
 class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContract.View) : RepoContract.Presenter {
 

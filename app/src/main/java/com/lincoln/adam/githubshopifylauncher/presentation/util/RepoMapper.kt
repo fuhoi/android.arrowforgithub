@@ -1,7 +1,7 @@
-package com.lincoln.adam.githubshopifylauncher.util
+package com.lincoln.adam.githubshopifylauncher.presentation.util
 
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
-import com.lincoln.adam.githubshopifylauncher.repo.RepoViewModel
+import com.lincoln.adam.githubshopifylauncher.presentation.repo.RepoViewModel
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.Period

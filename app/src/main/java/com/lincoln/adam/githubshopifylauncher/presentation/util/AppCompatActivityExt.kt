@@ -1,4 +1,4 @@
-package com.lincoln.adam.githubshopifylauncher.util
+package com.lincoln.adam.githubshopifylauncher.presentation.util
 
 import android.support.annotation.IdRes
 import android.support.v4.app.Fragment

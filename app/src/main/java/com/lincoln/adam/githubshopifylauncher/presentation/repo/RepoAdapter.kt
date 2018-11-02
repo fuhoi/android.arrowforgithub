@@ -1,4 +1,4 @@
-package com.lincoln.adam.githubshopifylauncher.repo
+package com.lincoln.adam.githubshopifylauncher.presentation.repo
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

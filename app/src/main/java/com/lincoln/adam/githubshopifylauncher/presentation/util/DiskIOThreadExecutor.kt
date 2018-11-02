@@ -1,4 +1,4 @@
-package com.lincoln.adam.githubshopifylauncher.util
+package com.lincoln.adam.githubshopifylauncher.presentation.util
 
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors

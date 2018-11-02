@@ -1,4 +1,4 @@
-package com.lincoln.adam.githubshopifylauncher.util
+package com.lincoln.adam.githubshopifylauncher.presentation.util
 
 import android.os.Handler
 import android.os.Looper
