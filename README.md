@@ -42,7 +42,7 @@ Google:
 * Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
 * Clean - implement use cases and separate layers into data / domain / presentation
-* List items - Revamp the styling of list items, add the stargazers icon and maybe the forked from text (from GitHub)
+* List items - Revamp the styling of list items, add the stargazers icon and maybe the _forked from_ text (from GitHub)
 * Filter - who doesn't love a magnifying glass in their toolbar?
 * Sort - Sort by fields displayed
 * Unit tests
