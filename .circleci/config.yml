@@ -21,8 +21,17 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
-          name: Run Tests
-          command: ./gradlew lint test
+          name: Assemble app
+          command: ./gradlew assemble -PdisablePreDex
+      - run:
+          name: Run lint
+          command: ./gradlew lint -PdisablePreDex
+      - run:
+          name: Generate JaCoCo report
+          command: ./gradlew jacocoTestReport -PdisablePreDex
+      - run:
+          name: Run tests
+          command: ./gradlew test -PdisablePreDex
       - store_artifacts:
           path: app/build/reports
           destination: reports

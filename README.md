@@ -2,6 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop.svg?style=svg)](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop)
 [![CircleCI](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop.svg?style=shield)](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop)
+[![codecov](https://codecov.io/gh/fuhoi/android.github.shopify/branch/develop/graph/badge.svg)](https://codecov.io/gh/fuhoi/android.github.shopify)
 
 A demostration app with a single recycler view, displaying public repositories for the Shopify organisation using the Github Developer API.
 
