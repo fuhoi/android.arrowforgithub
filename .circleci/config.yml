@@ -30,6 +30,9 @@ jobs:
           name: Generate JaCoCo report
           command: ./gradlew jacocoTestReport -PdisablePreDex
       - run:
+          name: Upload coverage report to CodeCov
+          command: bash <(curl -s https://codecov.io/bash)
+      - run:
           name: Run tests
           command: ./gradlew test -PdisablePreDex
       - store_artifacts:
