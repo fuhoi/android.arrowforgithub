@@ -22,6 +22,6 @@ class MainActivity : AppCompatActivity() {
             replaceFragmentInActivity(it, R.id.contentFrame)
         }
 
-        repoPresenter = RepoPresenter(Injection.provideTasksRepository(applicationContext), repoFragment)
+        repoPresenter = RepoPresenter(Injection.provideRepoRepository(applicationContext), repoFragment)
     }
 }

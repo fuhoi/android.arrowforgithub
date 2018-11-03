@@ -55,6 +55,8 @@ Google:
 * Event bus for highlighting source of data with a snackbar - `Loaded from <source> | OK`
 * Separate memory / disk (room) / web layers with a status indicator of where the data is and it's size
 * Add thread executor for background tasks like mapping - might be solved with Rx
+* Free vs Paid - ad supported
+* Choose any colour via a Settings menu, store in sharedprefs
 
 # Resources
 

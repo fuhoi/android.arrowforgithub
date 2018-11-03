@@ -60,7 +60,7 @@ class RepoRepository(
     }
 
     private inline fun cacheAndPerform(repoModel: RepoModel, perform: (RepoModel) -> Unit) {
-        val cachedTask = RepoModel(
+        val cachedRepo = RepoModel(
             repoModel.id,
             repoModel.name,
             repoModel.description,
@@ -72,8 +72,8 @@ class RepoRepository(
             repoModel.language,
             repoModel.archived
         )
-        cachedRepos[cachedTask.id] = cachedTask
-        perform(cachedTask)
+        cachedRepos[cachedRepo.id] = cachedRepo
+        perform(cachedRepo)
     }
 
     private fun getReposFromRemoteDataSource(repoCallback: RepoDataSource.RepoCallback) {
