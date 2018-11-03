@@ -13,10 +13,20 @@ fun mapRepoModelToRepoViewModel(repoList: List<RepoModel>): List<RepoViewModel> 
     RepoViewModel(
         it.id.toString(),
         it.name,
-        "Is fork: ${ if (it.fork) "Yes" else "No" }",
-        "Stargazers: ${getStringFromNumber(it.stargazers_count)}",
+        it.description,
+        it.fork,
+//        "Is fork: ${ if (it.fork) "Yes" else "No" }",
+        if (it.fork) "This repository is a fork" else "",
+        getStringFromNumber(it.forks_count),
         "Created: ${getTimeSinceString(it.created_at)} ago",
-        it.html_url)
+//        "Stargazers: ${getStringFromNumber(it.stargazers_count)}",
+        getStringFromNumber(it.stargazers_count),
+        it.html_url,
+        it.homepage,
+        it.language,
+        it.archived,
+        "Archived: ${if (it.archived) "Yes" else "No"}"
+    )
 }
 
 fun getStringFromNumber(number: Int) = NumberFormat.getIntegerInstance().format(number)!!

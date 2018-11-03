@@ -4,13 +4,14 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.lincoln.adam.githubshopifylauncher.R
 import kotlinx.android.synthetic.main.fragment_repo_item.view.*
 
 class RepoAdapter(
     repoList: List<RepoViewModel>,
-    private val listener: RepoFragment.RepoListener?
+    private val listener: RepoFragment.RepoOnClickListener?
 ) : RecyclerView.Adapter<RepoAdapter.ViewHolder>() {
 
     var repoList: List<RepoViewModel> = repoList
@@ -19,40 +20,51 @@ class RepoAdapter(
             notifyDataSetChanged()
         }
 
-    private val onClickListener: View.OnClickListener
-
-    init {
-        onClickListener = View.OnClickListener { v ->
-            val viewModel = v.tag as RepoViewModel
-            listener?.onRepoClick(viewModel)
-        }
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_repo_item, parent, false)
-        return ViewHolder(view)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
+        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.fragment_repo_item, parent, false))
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val viewModel = repoList[position]
+        holder.view.tag = viewModel
 
-        holder.name.text = viewModel.name
-        holder.fork.text = viewModel.fork
-        holder.timeSinceCreated.text = viewModel.timeSinceCreated
-        holder.stargazersCount.text = viewModel.stargazersCount
+        setTextAndVisibility(holder.name, viewModel.name)
+        setTextAndVisibility(holder.description, viewModel.description)
+        setTextAndVisibility(holder.language, viewModel.language)
+        setTextAndVisibility(holder.stargazersCount, viewModel.stargazers_count)
+        setTextAndVisibility(holder.forkText, viewModel.fork_text)
+        setTextAndVisibility(holder.timeSinceCreated, viewModel.time_since_created)
+        setTextAndVisibility(holder.forkCount, viewModel.fork_count)
 
-        with(holder.view) {
-            tag = viewModel
-            setOnClickListener(onClickListener)
-        }
+        setEnabled(holder.githubUrl, viewModel.github_url)
+        setEnabled(holder.homepageUrl, viewModel.homepage_url)
+    }
+
+    private fun setTextAndVisibility(textView: TextView, text: String?) {
+        textView.text = text
+        textView.visibility = if (text?.isNotEmpty() == true) View.VISIBLE else View.GONE
+    }
+
+    private fun setEnabled(v: View, text: String?) {
+        v.isEnabled = text?.isNotEmpty() ?: false
     }
 
     override fun getItemCount(): Int = repoList.size
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val name:TextView = view.name
-        val fork: TextView = view.fork
-        val timeSinceCreated: TextView = view.timeSinceCreated
-        val stargazersCount: TextView = view.stargazersCount
+
+        val name: TextView = view.name
+        val description: TextView = view.description
+        val language: TextView = view.language
+        val stargazersCount: TextView = view.stargazers_count
+        val forkText: TextView = view.fork_text
+        val timeSinceCreated: TextView = view.time_since_created
+        val forkCount: TextView = view.fork_count
+        val githubUrl: Button = view.github_url
+        val homepageUrl: Button = view.homepage_url
+
+        init {
+            githubUrl.setOnClickListener { listener?.onGitHubUrlClick(view.tag as RepoViewModel) }
+            homepageUrl.setOnClickListener { listener?.onHomepageUrlClick(view.tag as RepoViewModel) }
+        }
     }
 }

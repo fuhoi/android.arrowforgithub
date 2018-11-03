@@ -39,10 +39,12 @@ Google:
 
 # To Do
 
+* Implement loading / empty with retry / no network with retry
+* List items - chips are clickable?  Setting foreground=transparent / clickabled = false / focusable = false didn't help.
+* RecyclerView - sticky headers - a through z
 * Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
 * Clean - implement use cases and separate layers into data / domain / presentation
-* List items - Revamp the styling of list items, add the stargazers icon and maybe the _forked from_ text (from GitHub)
 * Filter - who doesn't love a magnifying glass in their toolbar?
 * Sort - Sort by fields displayed
 * Unit tests
@@ -56,7 +58,12 @@ Google:
 * Separate memory / disk (room) / web layers with a status indicator of where the data is and it's size
 * Add thread executor for background tasks like mapping - might be solved with Rx
 * Free vs Paid - ad supported
-* Choose any colour via a Settings menu, store in sharedprefs
+* Choose any colour via a Settings menu, store in sharedprefs - Palette to extract colour from the Orgs icon?
+* Co-ordinator layout
+* Share sheet with text, email and Nearby API support
+* Dependant API calls
+    * https://api.github.com/orgs/shopify/repos
+    * For each repo where fork: true -> https://api.github.com/repos/Shopify/delayed_job and return parent.full_name: "tobi/delayed_job"
 
 # Resources
 

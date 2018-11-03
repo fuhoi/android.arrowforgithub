@@ -6,7 +6,7 @@ import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 
-@Database(entities = arrayOf(RepoModel::class), version = 1, exportSchema = true)
+@Database(entities = [RepoModel::class], version = 1, exportSchema = true)
 abstract class RepoDatabase : RoomDatabase() {
 
     abstract fun repoDao(): RepoDao
@@ -23,7 +23,8 @@ abstract class RepoDatabase : RoomDatabase() {
                         INSTANCE = Room.databaseBuilder(
                             context.applicationContext,
                             RepoDatabase::class.java,
-                            "Repo.db")
+                            "Repo.db"
+                        )
                             .build()
                     }
                 }
