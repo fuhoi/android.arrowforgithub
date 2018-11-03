@@ -42,8 +42,21 @@ Google:
 * Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
 * Clean - implement use cases and separate layers into data / domain / presentation
+* List items - Revamp the styling of list items, add the stargazers icon and maybe the _forked from_ text (from GitHub)
+* Filter - who doesn't love a magnifying glass in their toolbar?
+* Sort - Sort by fields displayed
 * Unit tests
 * Developed for Pixel 2 API 27 - test for more devices / screen sizes / API levels
+* Tablet mode
+* Configuration changes (orientation)
+* Review Lint report
+* Provide support for signing keys
+* Docker image for CI/CD
+* Event bus for highlighting source of data with a snackbar - `Loaded from <source> | OK`
+* Separate memory / disk (room) / web layers with a status indicator of where the data is and it's size
+* Add thread executor for background tasks like mapping - might be solved with Rx
+* Free vs Paid - ad supported
+* Choose any colour via a Settings menu, store in sharedprefs
 
 # Resources
 
@@ -51,6 +64,7 @@ Google:
 * [GitHub Developer](https://developer.github.com)
 * [Shopify Repositories via GitHub Developer API](https://api.github.com/orgs/shopify/repos)
 * [Postman](https://www.getpostman.com/)
+* [Android Jetpack](https://developer.android.com/jetpack/)
 * [Android Jetpack - Guide to app architecture](https://developer.android.com/jetpack/docs/guide)
 * [Android Architecture Blueprints](https://github.com/googlesamples/android-architecture)
 * [Android Sunflower](https://github.com/googlesamples/android-sunflower)
