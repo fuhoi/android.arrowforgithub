@@ -18,9 +18,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val repoFragment = supportFragmentManager.findFragmentById(R.id.contentFrame) as RepoFragment? ?: RepoFragment.newInstance().also {
-            replaceFragmentInActivity(it, R.id.contentFrame)
-        }
+        val repoFragment = supportFragmentManager.findFragmentById(R.id.contentFrame) as RepoFragment?
+            ?: RepoFragment.newInstance().also {
+                replaceFragmentInActivity(it, R.id.contentFrame)
+            }
 
         repoPresenter = RepoPresenter(Injection.provideRepoRepository(applicationContext), repoFragment)
     }

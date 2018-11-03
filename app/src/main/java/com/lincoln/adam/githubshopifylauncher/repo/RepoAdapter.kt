@@ -4,10 +4,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.lincoln.adam.githubshopifylauncher.R
 import kotlinx.android.synthetic.main.fragment_repo_item.view.*
-import android.widget.Button
 
 class RepoAdapter(
     repoList: List<RepoViewModel>,
@@ -27,14 +27,25 @@ class RepoAdapter(
         val viewModel = repoList[position]
         holder.view.tag = viewModel
 
-        holder.name.text = viewModel.name
-        holder.description.text = viewModel.description
-        holder.language.text = viewModel.language
-        holder.stargazersCount.text = viewModel.stargazers_count
-        holder.forkText.text = viewModel.fork_text
-        holder.timeSinceCreated.text = viewModel.time_since_created
-        holder.githubUrl.isEnabled = viewModel.github_url.isNotBlank()
-        holder.homepageUrl.isEnabled = viewModel.homepage_url?.isNotBlank() ?: false
+        setTextAndVisibility(holder.name, viewModel.name)
+        setTextAndVisibility(holder.description, viewModel.description)
+        setTextAndVisibility(holder.language, viewModel.language)
+        setTextAndVisibility(holder.stargazersCount, viewModel.stargazers_count)
+        setTextAndVisibility(holder.forkText, viewModel.fork_text)
+        setTextAndVisibility(holder.timeSinceCreated, viewModel.time_since_created)
+        setTextAndVisibility(holder.forkCount, viewModel.fork_count)
+
+        setEnabled(holder.githubUrl, viewModel.github_url)
+        setEnabled(holder.homepageUrl, viewModel.homepage_url)
+    }
+
+    private fun setTextAndVisibility(textView: TextView, text: String?) {
+        textView.text = text
+        textView.visibility = if (text?.isNotEmpty() == true) View.VISIBLE else View.GONE
+    }
+
+    private fun setEnabled(v: View, text: String?) {
+        v.isEnabled = text?.isNotEmpty() ?: false
     }
 
     override fun getItemCount(): Int = repoList.size
@@ -47,6 +58,7 @@ class RepoAdapter(
         val stargazersCount: TextView = view.stargazers_count
         val forkText: TextView = view.fork_text
         val timeSinceCreated: TextView = view.time_since_created
+        val forkCount: TextView = view.fork_count
         val githubUrl: Button = view.github_url
         val homepageUrl: Button = view.homepage_url
 

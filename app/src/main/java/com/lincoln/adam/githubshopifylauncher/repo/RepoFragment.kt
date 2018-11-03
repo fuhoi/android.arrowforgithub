@@ -32,7 +32,7 @@ class RepoFragment : Fragment(), RepoContract.View {
 
     }
 
-    private var repoOnClickListener: RepoOnClickListener = object: RepoOnClickListener {
+    private var repoOnClickListener: RepoOnClickListener = object : RepoOnClickListener {
 
         override fun onGitHubUrlClick(repo: RepoViewModel) {
             presenter.onGitHubUrlClick(repo)
@@ -59,7 +59,7 @@ class RepoFragment : Fragment(), RepoContract.View {
             recyclerView.adapter = repoAdapter
 //            val dividerItemDecoration = if (recyclerView.layoutManager is LinearLayoutManager) (recyclerView.layoutManager as LinearLayoutManager).orientation else DividerItemDecoration.VERTICAL
 //            recyclerView.addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
-            recyclerView.setHasFixedSize(true)
+//            recyclerView.setHasFixedSize(true)
             recyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_fall_down)
             swipeRefreshLayout.setOnRefreshListener { presenter.loadRepos(false) }
         }

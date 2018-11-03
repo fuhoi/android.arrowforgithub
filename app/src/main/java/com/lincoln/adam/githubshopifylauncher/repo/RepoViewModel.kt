@@ -8,6 +8,7 @@ data class RepoViewModel(
     val description: String?,
     val fork: Boolean,
     val fork_text: String,
+    val fork_count: String,
     val time_since_created: String,
     val stargazers_count: String,
     val github_url: String,

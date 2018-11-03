@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="16dp"
@@ -19,7 +20,9 @@
         android:layout_height="match_parent"
         android:minHeight="?listPreferredItemHeight"
         android:orientation="vertical"
-        android:padding="8dp"
+        android:paddingTop="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
         android:gravity="center_vertical"
         >
 
@@ -31,9 +34,10 @@
             android:textAppearance="?attr/textAppearanceListItem"
             android:ellipsize="end"
             android:maxLines="1"
-            android:layout_marginBottom="4dp"
+            android:layout_marginBottom="8dp"
             tools:text="active_shipping"
             />
+
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/description"
             style="@style/TextAppearance.AppCompat.Body1"
@@ -41,9 +45,34 @@
             android:layout_height="wrap_content"
             android:textAppearance="?attr/textAppearanceListItem"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:layout_marginBottom="4dp"
+            android:maxLines="3"
+            android:layout_marginBottom="8dp"
             tools:text="ActiveShipping is a simple shipping abstraction library extracted from Shopify"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/fork_text"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="This repository is a fork"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/time_since_created"
+            style="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginBottom="8dp"
+            android:textAppearance="?attr/textAppearanceListItem"
+            tools:text="Created: 10 years, 6 months ago"
             />
 
         <android.support.v7.widget.LinearLayoutCompat
@@ -51,48 +80,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >
-            <android.support.v7.widget.AppCompatTextView
+
+            <android.support.design.chip.Chip
                 android:id="@+id/language"
-                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceListItem"
+                app:chipIcon="@drawable/ic_language_grey_500_24dp"
                 tools:text="Ruby"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 />
-            <android.support.v7.widget.AppCompatTextView
+
+            <android.support.design.chip.Chip
                 android:id="@+id/stargazers_count"
-                style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="end"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceListItem"
-                tools:text="Stargazers: 786"
+                app:chipIcon="@drawable/ic_star_grey_500_24dp"
+                tools:text="787"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 />
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/fork_text"
-                style="@style/TextAppearance.AppCompat.Body1"
+
+            <android.support.design.chip.Chip
+                android:id="@+id/fork_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="end"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceListItem"
-                tools:text="Is Fork: Yes"
+                app:chipIcon="@drawable/ic_call_split_grey_500_24dp"
+                tools:text="441"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 />
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/time_since_created"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:textAppearance="?attr/textAppearanceListItem"
-                tools:text="Created: 1 day, 3 hours ago"
-                />
+
         </android.support.v7.widget.LinearLayoutCompat>
 
         <android.support.v7.widget.LinearLayoutCompat
@@ -101,6 +119,7 @@
             android:layout_gravity="end"
             android:gravity="end"
             >
+
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/github_url"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"
@@ -108,6 +127,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/github_url"
                 />
+
             <android.support.v7.widget.AppCompatButton
                 android:id="@+id/homepage_url"
                 style="@style/Widget.AppCompat.Button.Borderless.Colored"

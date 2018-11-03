@@ -65,6 +65,7 @@ class RepoRepository(
             repoModel.name,
             repoModel.description,
             repoModel.fork,
+            repoModel.forks_count,
             repoModel.created_at,
             repoModel.stargazers_count,
             repoModel.html_url,
