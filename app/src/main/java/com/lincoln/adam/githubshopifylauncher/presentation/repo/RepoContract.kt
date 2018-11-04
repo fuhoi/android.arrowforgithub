@@ -21,7 +21,9 @@ interface RepoContract {
 
         fun loadRepos(forceUpdate: Boolean)
 
-        fun onRepoClick(repo: RepoViewModel)
+        fun onGitHubUrlClick(repo: RepoViewModel)
+
+        fun onHomepageUrlClick(repo: RepoViewModel)
 
     }
 }

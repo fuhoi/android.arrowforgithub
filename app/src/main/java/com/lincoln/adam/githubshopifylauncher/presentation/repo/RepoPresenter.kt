@@ -52,7 +52,11 @@ class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContra
         repoView.showRepoList(repoList)
     }
 
-    override fun onRepoClick(repo: RepoViewModel) {
-        repoView.navigateToUrl(repo.htmlUrl)
+    override fun onGitHubUrlClick(repo: RepoViewModel) {
+        repoView.navigateToUrl(repo.github_url)
+    }
+
+    override fun onHomepageUrlClick(repo: RepoViewModel) {
+        repoView.navigateToUrl(repo.homepage_url!!)
     }
 }

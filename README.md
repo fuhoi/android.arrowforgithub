@@ -1,5 +1,9 @@
 # android.github.shopify
 
+[![CircleCI](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop.svg?style=svg)](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop)
+[![CircleCI](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop.svg?style=shield)](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop)
+[![codecov](https://codecov.io/gh/fuhoi/android.github.shopify/branch/develop/graph/badge.svg)](https://codecov.io/gh/fuhoi/android.github.shopify)
+
 A demostration app with a single recycler view, displaying public repositories for the Shopify organisation using the Github Developer API.
 
 ![](intro.gif)
@@ -42,10 +46,13 @@ Google:
 
 # To Do
 
-* Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
+* Add a script that clicks through the app and records a video, stops and saves it to file.
+* Implement loading / empty with retry / no network with retry
+* List items - chips are clickable?  Setting foreground=transparent / clickabled = false / focusable = false didn't help.
+* Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Clean - implement use cases and separate layers into data / domain / presentation
-* List items - Revamp the styling of list items, add the stargazers icon and maybe the _forked from_ text (from GitHub)
+* RecyclerView - sticky headers - a through z - requires a sortable / filterable repository
 * Filter - who doesn't love a magnifying glass in their toolbar?
 * Sort - Sort by fields displayed
 * Unit tests
@@ -54,10 +61,16 @@ Google:
 * Configuration changes (orientation)
 * Review Lint report
 * Provide support for signing keys
-* Docker image for CI/CD
 * Event bus for highlighting source of data with a snackbar - `Loaded from <source> | OK`
 * Separate memory / disk (room) / web layers with a status indicator of where the data is and it's size
 * Add thread executor for background tasks like mapping - might be solved with Rx
+* Free vs Paid - ad supported
+* Choose any colour via a Settings menu, store in sharedprefs - Palette to extract colour from the Orgs icon?
+* Co-ordinator layout
+* Share sheet with text, email and Nearby API support
+* Dependant API calls
+    * https://api.github.com/orgs/shopify/repos
+    * For each repo where fork: true -> https://api.github.com/repos/Shopify/delayed_job and return parent.full_name: "tobi/delayed_job"
 
 # Resources
 

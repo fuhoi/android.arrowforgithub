@@ -6,10 +6,10 @@ import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 @Dao
 interface RepoDao {
 
-    @Query("SELECT * FROM Repo")
+    @Query("SELECT * FROM RepoModel")
     fun getRepos(): List<RepoModel>
 
-    @Query("SELECT * FROM Repo WHERE id = :repoId")
+    @Query("SELECT * FROM RepoModel WHERE id = :repoId")
     fun getRepoById(repoId: String): RepoModel?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -18,10 +18,10 @@ interface RepoDao {
     @Update
     fun updateRepo(repo: RepoModel): Int
 
-    @Query("DELETE FROM Repo WHERE id = :repoId")
+    @Query("DELETE FROM RepoModel WHERE id = :repoId")
     fun deleteRepoById(repoId: String): Int
 
-    @Query("DELETE FROM Repo")
+    @Query("DELETE FROM RepoModel")
     fun deleteRepos()
 
 }

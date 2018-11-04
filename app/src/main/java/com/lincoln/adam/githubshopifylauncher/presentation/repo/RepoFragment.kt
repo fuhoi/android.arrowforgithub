@@ -5,8 +5,8 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.Fragment
-import android.support.v7.widget.DividerItemDecoration
 import android.view.*
+import android.view.animation.AnimationUtils
 import com.lincoln.adam.githubshopifylauncher.R
 import kotlinx.android.synthetic.main.fragment_repo.*
 import kotlinx.android.synthetic.main.fragment_repo.view.*
@@ -24,19 +24,27 @@ class RepoFragment : Fragment(), RepoContract.View {
     override var isActive: Boolean = false
         get() = isAdded
 
-    interface RepoListener {
+    interface RepoOnClickListener {
 
-        fun onRepoClick(repo: RepoViewModel)
+        fun onGitHubUrlClick(repo: RepoViewModel)
+
+        fun onHomepageUrlClick(repo: RepoViewModel)
 
     }
 
-    private var repoListener: RepoListener = object: RepoListener {
-        override fun onRepoClick(repo: RepoViewModel) {
-            presenter.onRepoClick(repo)
+    private var repoOnClickListener: RepoOnClickListener = object : RepoOnClickListener {
+
+        override fun onGitHubUrlClick(repo: RepoViewModel) {
+            presenter.onGitHubUrlClick(repo)
         }
+
+        override fun onHomepageUrlClick(repo: RepoViewModel) {
+            presenter.onHomepageUrlClick(repo)
+        }
+
     }
 
-    private val repoAdapter = RepoAdapter(ArrayList(0), repoListener)
+    private val repoAdapter = RepoAdapter(ArrayList(0), repoOnClickListener)
 
     override fun onResume() {
         super.onResume()
@@ -49,7 +57,10 @@ class RepoFragment : Fragment(), RepoContract.View {
 
         with(root) {
             recyclerView.adapter = repoAdapter
-            recyclerView.addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
+//            val dividerItemDecoration = if (recyclerView.layoutManager is LinearLayoutManager) (recyclerView.layoutManager as LinearLayoutManager).orientation else DividerItemDecoration.VERTICAL
+//            recyclerView.addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
+//            recyclerView.setHasFixedSize(true)
+            recyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_fall_down)
             swipeRefreshLayout.setOnRefreshListener { presenter.loadRepos(false) }
         }
 
@@ -84,6 +95,7 @@ class RepoFragment : Fragment(), RepoContract.View {
 
     override fun showRepoList(repoList: List<RepoViewModel>) {
         repoAdapter.repoList = repoList
+        recyclerView.scheduleLayoutAnimation()  // Forces items to always animate.
     }
 
     override fun navigateToUrl(url: String) {

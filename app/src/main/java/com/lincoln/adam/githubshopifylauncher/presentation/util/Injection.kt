@@ -8,7 +8,7 @@ import com.lincoln.adam.githubshopifylauncher.data.source.remote.RepoRemoteDataS
 
 object Injection {
 
-    fun provideTasksRepository(context: Context): RepoRepository {
+    fun provideRepoRepository(context: Context): RepoRepository {
         val database = RepoDatabase.getInstance(context)
         return RepoRepository.getInstance(
             RepoRemoteDataSource.getInstance(),

@@ -60,9 +60,21 @@ class RepoRepository(
     }
 
     private inline fun cacheAndPerform(repoModel: RepoModel, perform: (RepoModel) -> Unit) {
-        val cachedTask = RepoModel(repoModel.id, repoModel.name, repoModel.fork, repoModel.created_at, repoModel.stargazers_count, repoModel.html_url)
-        cachedRepos[cachedTask.id] = cachedTask
-        perform(cachedTask)
+        val cachedRepo = RepoModel(
+            repoModel.id,
+            repoModel.name,
+            repoModel.description,
+            repoModel.fork,
+            repoModel.forks_count,
+            repoModel.created_at,
+            repoModel.stargazers_count,
+            repoModel.html_url,
+            repoModel.homepage,
+            repoModel.language,
+            repoModel.archived
+        )
+        cachedRepos[cachedRepo.id] = cachedRepo
+        perform(cachedRepo)
     }
 
     private fun getReposFromRemoteDataSource(repoCallback: RepoDataSource.RepoCallback) {
