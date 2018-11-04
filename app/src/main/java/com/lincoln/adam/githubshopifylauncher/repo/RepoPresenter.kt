@@ -13,11 +13,15 @@ class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContra
         repoView.presenter = this
     }
 
-    override fun start() {
-        loadRepos(false)
-    }
+    override fun start() = loadRepos(false)
 
-    override fun loadRepos(forceUpdate: Boolean) {
+    override fun onSwipeRefresh() = loadRepos(false)
+
+    override fun onRefreshClick() = loadRepos(false)
+
+    override fun onForceRefreshClick() = loadRepos(true)
+
+    private fun loadRepos(forceUpdate: Boolean) {
         loadRepos(forceUpdate || firstLoad, true)
         firstLoad = false
     }

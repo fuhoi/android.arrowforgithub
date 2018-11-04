@@ -50,11 +50,11 @@ class RepoFragment : Fragment(), RepoContract.View {
         with(root) {
             recyclerView.adapter = repoAdapter
             recyclerView.addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
-            swipeRefreshLayout.setOnRefreshListener { presenter.loadRepos(false) }
+            swipeRefreshLayout.setOnRefreshListener { presenter.onSwipeRefresh() }
         }
 
         requireActivity().findViewById<FloatingActionButton>(R.id.fab_refresh).apply {
-            setOnClickListener { presenter.loadRepos(false) }
+            setOnClickListener { presenter.onRefreshClick() }
         }
 
         setHasOptionsMenu(true)
@@ -69,7 +69,7 @@ class RepoFragment : Fragment(), RepoContract.View {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_refresh -> {
-                presenter.loadRepos(true)
+                presenter.onForceRefreshClick()
                 return true
             }
         }
