@@ -71,6 +71,7 @@ Google:
 * Dependant API calls
     * https://api.github.com/orgs/shopify/repos
     * For each repo where fork: true -> https://api.github.com/repos/Shopify/delayed_job and return parent.full_name: "tobi/delayed_job"
+* Raspi Tv dashboard to monitor app dev / build / agile / deployments / installs
 
 # Resources
 
