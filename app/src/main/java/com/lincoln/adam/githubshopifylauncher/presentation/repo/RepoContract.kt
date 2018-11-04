@@ -19,7 +19,11 @@ interface RepoContract {
 
     interface Presenter : BasePresenter {
 
-        fun loadRepos(forceUpdate: Boolean)
+        fun onSwipeRefresh()
+
+        fun onRefreshClick()
+
+        fun onForceRefreshClick()
 
         fun onGitHubUrlClick(repo: RepoViewModel)
 

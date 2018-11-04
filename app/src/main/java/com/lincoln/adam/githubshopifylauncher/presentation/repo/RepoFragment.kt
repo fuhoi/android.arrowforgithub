@@ -61,11 +61,11 @@ class RepoFragment : Fragment(), RepoContract.View {
 //            recyclerView.addItemDecoration(DividerItemDecoration(context!!, DividerItemDecoration.VERTICAL))
 //            recyclerView.setHasFixedSize(true)
             recyclerView.layoutAnimation = AnimationUtils.loadLayoutAnimation(context, R.anim.layout_fall_down)
-            swipeRefreshLayout.setOnRefreshListener { presenter.loadRepos(false) }
+            swipeRefreshLayout.setOnRefreshListener { presenter.onSwipeRefresh() }
         }
 
         requireActivity().findViewById<FloatingActionButton>(R.id.fab_refresh).apply {
-            setOnClickListener { presenter.loadRepos(false) }
+            setOnClickListener { presenter.onRefreshClick() }
         }
 
         setHasOptionsMenu(true)
@@ -80,7 +80,7 @@ class RepoFragment : Fragment(), RepoContract.View {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_refresh -> {
-                presenter.loadRepos(true)
+                presenter.onForceRefreshClick()
                 return true
             }
         }
