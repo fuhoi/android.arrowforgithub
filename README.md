@@ -68,6 +68,12 @@ Google:
 * Dependant API calls
     * https://api.github.com/orgs/shopify/repos
     * For each repo where fork: true -> https://api.github.com/repos/Shopify/delayed_job and return parent.full_name: "tobi/delayed_job"
+* To Stateful Presenter or not
+* Stetho
+* Timber
+* pidcat (on Windows? bash, Windows Subsystem for Linux, Python - yay!)
+* Callgraphy for font-awesome / material icon font
+* Dashboard with Cast API
 
 # Resources
 
