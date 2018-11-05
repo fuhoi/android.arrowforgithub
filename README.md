@@ -88,3 +88,4 @@ Google:
 * [Cheesesquare Sample](https://github.com/chrisbanes/cheesesquare)
 * [Best practices in Android development](https://github.com/futurice/android-best-practices)
 * [Complete Android Fragment & Activity Lifecycle](https://github.com/xxv/android-lifecycle)
+* [Material Design - The development documentation](https://materialdoc.com/)
