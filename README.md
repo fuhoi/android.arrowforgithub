@@ -64,7 +64,7 @@ Google:
 * Free vs Paid - ad supported
 * Choose any colour via a Settings menu, store in sharedprefs - Palette to extract colour from the Orgs icon?
 * Co-ordinator layout
-* Share sheet with text, email and Nearby API support
+* Share sheet with text, email, QR Code and Nearby API support
 * Navigation Drawer
 * Authenitication via Login with Google / Facebook - Share with "my devices"
 * Dependant API calls
