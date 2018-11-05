@@ -76,7 +76,7 @@ Google:
 * pidcat (on Windows? bash, Windows Subsystem for Linux, Python - yay!)
 * Callgraphy for font-awesome / material icon font
 * Dashboard with Cast API
-* Smart watch ... listen for incoming connections / shares and open app on phone?
+* Smart watch ... listen for incoming connections / shares and open app on phone?  Small dashboard with notifications?
 
 # Resources
 
