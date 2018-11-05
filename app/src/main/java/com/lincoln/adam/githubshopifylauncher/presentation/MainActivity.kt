@@ -8,6 +8,8 @@ import com.lincoln.adam.githubshopifylauncher.presentation.repo.RepoPresenter
 import com.lincoln.adam.githubshopifylauncher.presentation.util.Injection
 import com.lincoln.adam.githubshopifylauncher.presentation.util.replaceFragmentInActivity
 import dagger.Component
+import dagger.Module
+import dagger.Provides
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -45,11 +47,17 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-@Component
-interface InfoComponent {
-    fun inject(app: MainActivity)
+@Module
+class InfoModule {
+    @Provides
+    fun providesInfo(): Info {
+        return Info("Hello World! " + MainActivity.id++)
+    }
 }
 
-class Info @Inject constructor() {
-    val text = "Hello World! " + MainActivity.id++
+data class Info(val text: String)
+
+@Component(modules = [InfoModule::class])
+interface InfoComponent {
+    fun inject(app: MainActivity)
 }
