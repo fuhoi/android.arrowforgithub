@@ -7,9 +7,21 @@ import com.lincoln.adam.githubshopifylauncher.presentation.repo.RepoFragment
 import com.lincoln.adam.githubshopifylauncher.presentation.repo.RepoPresenter
 import com.lincoln.adam.githubshopifylauncher.presentation.util.Injection
 import com.lincoln.adam.githubshopifylauncher.presentation.util.replaceFragmentInActivity
+import dagger.Component
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        var id: Int = 0
+    }
+
+    @Inject
+    lateinit var info1: Info
+
+    @Inject
+    lateinit var info2: Info
 
     private lateinit var repoPresenter: RepoPresenter
 
@@ -25,5 +37,19 @@ class MainActivity : AppCompatActivity() {
             }
 
         repoPresenter = RepoPresenter(Injection.provideRepoRepository(applicationContext), repoFragment)
+
+        DaggerInfoComponent.create().inject(this)
+
+        helloWorld1.text = info1.text
+        helloWorld2.text = info2.text
     }
+}
+
+@Component
+interface InfoComponent {
+    fun inject(app: MainActivity)
+}
+
+class Info @Inject constructor() {
+    val text = "Hello World! " + MainActivity.id++
 }

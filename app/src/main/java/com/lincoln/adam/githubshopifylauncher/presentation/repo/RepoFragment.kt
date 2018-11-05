@@ -46,12 +46,6 @@ class RepoFragment : Fragment(), RepoContract.View {
 
     private val repoAdapter = RepoAdapter(ArrayList(0), repoOnClickListener)
 
-    override fun onResume() {
-        super.onResume()
-
-        presenter.start()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_repo, container, false)
 
@@ -71,6 +65,12 @@ class RepoFragment : Fragment(), RepoContract.View {
         setHasOptionsMenu(true)
 
         return root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        presenter.start()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater) {
