@@ -12,6 +12,7 @@ import dagger.Module
 import dagger.Provides
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+import javax.inject.Qualifier
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,9 +21,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Inject
+//    @field:Named("Format1")
+    @field:ChooseInfoType(InfoType.FORMAT_1)
     lateinit var info1: Info
 
     @Inject
+//    @field:Named("Format2")
+    @field:ChooseInfoType(InfoType.FORMAT_2)
     lateinit var info2: Info
 
     private lateinit var repoPresenter: RepoPresenter
@@ -47,12 +52,34 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
+@Qualifier
+@MustBeDocumented
+@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
+annotation class ChooseInfoType(val infoType: InfoType)
+
+enum class InfoType {
+    NONE,
+    FORMAT_1,
+    FORMAT_2
+}
+
 @Module
 class InfoModule {
+
     @Provides
-    fun providesInfo(): Info {
-        return Info("Hello World! " + MainActivity.id++)
+//    @Named("Format1")
+    @ChooseInfoType(InfoType.FORMAT_1)
+    fun providesInfoFormat1(): Info {
+        return Info("Hello World! ${MainActivity.id++}")
     }
+
+    @Provides
+//    @Named("Format2")
+    @ChooseInfoType(InfoType.FORMAT_2)
+    fun providesInfoFormat2(): Info {
+        return Info("${MainActivity.id++} Hello World! ")
+    }
+
 }
 
 data class Info(val text: String)
