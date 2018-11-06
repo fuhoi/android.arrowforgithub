@@ -76,6 +76,18 @@
         android:text="2"
         />
 
+    <TextView
+        android:id="@+id/helloWorld3"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:text="Click me!"
+        android:clickable="true"
+        android:focusable="true"
+        tools:text="Unique 1\nNormal 2"
+        />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_refresh"
         android:layout_width="wrap_content"

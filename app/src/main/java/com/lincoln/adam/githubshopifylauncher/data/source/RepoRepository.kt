@@ -9,6 +9,7 @@ class RepoRepository(
 
     companion object {
 
+        // TODO Dagger
         private var INSTANCE: RepoRepository? = null
 
         @JvmStatic

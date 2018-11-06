@@ -13,6 +13,7 @@ import dagger.Provides
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 import javax.inject.Qualifier
+import javax.inject.Scope
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,12 +22,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     @Inject
-//    @field:Named("Format1")
     @field:ChooseInfoType(InfoType.FORMAT_1)
     lateinit var info1: Info
 
     @Inject
-//    @field:Named("Format2")
     @field:ChooseInfoType(InfoType.FORMAT_2)
     lateinit var info2: Info
 
@@ -49,12 +48,23 @@ class MainActivity : AppCompatActivity() {
 
         helloWorld1.text = info1.text
         helloWorld2.text = info2.text
+
+        magicBox = DaggerMagicBox.create()
+
+        helloWorld3.setOnClickListener { doMagic() }
+    }
+
+    private lateinit var magicBox: MagicBox
+
+    private fun doMagic() {
+        val storage = Storage()
+        magicBox.poke(storage)
+        helloWorld3.text = "Unique ${storage.uniqueMagic.count}\nNormal ${storage.normalMagic.count}"
     }
 }
 
 @Qualifier
-@MustBeDocumented
-@kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
+@Retention(AnnotationRetention.RUNTIME)
 annotation class ChooseInfoType(val infoType: InfoType)
 
 enum class InfoType {
@@ -64,21 +74,15 @@ enum class InfoType {
 }
 
 @Module
-class InfoModule {
+open class InfoModule {
 
     @Provides
-//    @Named("Format1")
     @ChooseInfoType(InfoType.FORMAT_1)
-    fun providesInfoFormat1(): Info {
-        return Info("Hello World! ${MainActivity.id++}")
-    }
+    open fun providesInfoFormat1(): Info = Info("Hello World! ${MainActivity.id++}")
 
     @Provides
-//    @Named("Format2")
     @ChooseInfoType(InfoType.FORMAT_2)
-    fun providesInfoFormat2(): Info {
-        return Info("${MainActivity.id++} Hello World! ")
-    }
+    open fun providesInfoFormat2(): Info = Info("${MainActivity.id++} Hello World!")
 
 }
 
@@ -87,4 +91,35 @@ data class Info(val text: String)
 @Component(modules = [InfoModule::class])
 interface InfoComponent {
     fun inject(app: MainActivity)
+}
+
+@Scope
+@Retention(AnnotationRetention.RUNTIME)
+annotation class MagicScope
+
+@MagicScope
+@Component
+interface MagicBox {
+    fun poke(storage: Storage)
+}
+
+class Storage {
+
+    @Inject
+    lateinit var uniqueMagic: UniqueMagic
+
+    @Inject
+    lateinit var normalMagic: NormalMagic
+
+}
+
+var staticCounter = 0
+
+@MagicScope
+class UniqueMagic @Inject constructor() {
+    val count = staticCounter++
+}
+
+class NormalMagic @Inject constructor() {
+    val count = staticCounter++
 }

@@ -39,6 +39,7 @@ class RepoRemoteDataSource : RepoDataSource {
     private val gitHubService: GitHubService
 
     init {
+        // TODO Dagger
         val builder = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) {
             val logging = HttpLoggingInterceptor()
@@ -48,12 +49,14 @@ class RepoRemoteDataSource : RepoDataSource {
 
         httpClient = builder.build()
 
+        // TODO Dagger
         retrofit = Retrofit.Builder()
             .baseUrl(GITHUB_BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(httpClient)
             .build()
 
+        // TODO Dagger
         gitHubService = retrofit.create(GitHubService::class.java)
     }
 
@@ -66,6 +69,7 @@ class RepoRemoteDataSource : RepoDataSource {
             }
 
             override fun onFailure(call: Call<List<RepoModel>>, t: Throwable) {
+                // TODO Implement onFailure
                 TODO("not implemented")
             }
         })
