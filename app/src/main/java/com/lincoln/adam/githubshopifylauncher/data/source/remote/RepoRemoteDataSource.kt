@@ -1,21 +1,16 @@
 package com.lincoln.adam.githubshopifylauncher.data.source.remote
 
-import com.lincoln.adam.githubshopifylauncher.BuildConfig
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 class RepoRemoteDataSource : RepoDataSource {
 
     companion object {
 
-        const val GITHUB_BASE_URL = "https://api.github.com/"
         const val GITHUB_ORG_NAME = "shopify"
 
         private var INSTANCE: RepoRemoteDataSource? = null
@@ -34,34 +29,16 @@ class RepoRemoteDataSource : RepoDataSource {
     }
 
     private val repoCache = LinkedHashMap<Int, RepoModel>(0)
-    private val httpClient: OkHttpClient
-    private val retrofit: Retrofit
-    private val gitHubService: GitHubService
+
+    @Inject
+    lateinit var gitHubDeveloperApiService: GitHubDeveloperApiService
 
     init {
-        // TODO Dagger
-        val builder = OkHttpClient.Builder()
-        if (BuildConfig.DEBUG) {
-            val logging = HttpLoggingInterceptor()
-            logging.level = HttpLoggingInterceptor.Level.BASIC
-            builder.addInterceptor(logging)
-        }
-
-        httpClient = builder.build()
-
-        // TODO Dagger
-        retrofit = Retrofit.Builder()
-            .baseUrl(GITHUB_BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(httpClient)
-            .build()
-
-        // TODO Dagger
-        gitHubService = retrofit.create(GitHubService::class.java)
+        DaggerGitHubDeveloperApiComponent.create().inject(this)
     }
 
     override fun getRepos(repoCallback: RepoDataSource.RepoCallback) {
-        val call = gitHubService.getRepos(GITHUB_ORG_NAME)
+        val call = gitHubDeveloperApiService.getRepos(GITHUB_ORG_NAME)
         call.enqueue(object : Callback<List<RepoModel>> {
             override fun onResponse(call: Call<List<RepoModel>>, response: Response<List<RepoModel>>) {
                 val modelList = response.body()!!

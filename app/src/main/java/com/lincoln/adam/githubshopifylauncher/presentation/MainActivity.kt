@@ -116,15 +116,11 @@ class InfoStorage {
 
 }
 
-//var staticCounter = 0
-
 @InfoScope
 class ScopedInfo @Inject constructor() {
     val text: String = "Hello World! ${MainActivity.id++}"
-//    val count = staticCounter++
 }
 
 class NotScopedInfo @Inject constructor() {
     val text: String = "Hello World! ${MainActivity.id++}"
-//    val count = staticCounter++
 }

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
 
-interface GitHubService {
+interface GitHubDeveloperApiService {
 
     @Headers("Accept: application/vnd.github.v3.full+json")
     @GET("orgs/{name}/repos")
