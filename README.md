@@ -94,3 +94,4 @@ Google:
 * [Material Design - The development documentation](https://materialdoc.com/)
 * [Kotlin style guide](https://developer.android.com/kotlin/style-guide)
 * [apiwave](http://apiwave.com/java/api/junit.framework.Assert)
+* [Build local unit tests](https://developer.android.com/training/testing/unit-testing/local-unit-tests)
