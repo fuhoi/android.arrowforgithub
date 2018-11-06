@@ -49,17 +49,18 @@ class MainActivity : AppCompatActivity() {
         helloWorld1.text = info1.text
         helloWorld2.text = info2.text
 
-        magicBox = DaggerMagicBox.create()
+        infoScopedComponent = DaggerInfoScopedComponent.create()
 
         helloWorld3.setOnClickListener { doMagic() }
     }
 
-    private lateinit var magicBox: MagicBox
+    private lateinit var infoScopedComponent: InfoScopedComponent
 
     private fun doMagic() {
-        val storage = Storage()
-        magicBox.poke(storage)
-        helloWorld3.text = "Unique ${storage.uniqueMagic.count}\nNormal ${storage.normalMagic.count}"
+        val infoStorage = InfoStorage()
+        infoScopedComponent.inject(infoStorage)
+        helloWorld3.text = "Unique ${infoStorage.scopedInfo.text}\n" +
+                "info1: ${infoStorage.notScopedInfo.text}"
     }
 }
 
@@ -93,33 +94,37 @@ interface InfoComponent {
     fun inject(app: MainActivity)
 }
 
+
+
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class MagicScope
+annotation class InfoScope
 
-@MagicScope
+@InfoScope
 @Component
-interface MagicBox {
-    fun poke(storage: Storage)
+interface InfoScopedComponent {
+    fun inject(infoStorage: InfoStorage)
 }
 
-class Storage {
+class InfoStorage {
 
     @Inject
-    lateinit var uniqueMagic: UniqueMagic
+    lateinit var scopedInfo: ScopedInfo
 
     @Inject
-    lateinit var normalMagic: NormalMagic
+    lateinit var notScopedInfo: NotScopedInfo
 
 }
 
-var staticCounter = 0
+//var staticCounter = 0
 
-@MagicScope
-class UniqueMagic @Inject constructor() {
-    val count = staticCounter++
+@InfoScope
+class ScopedInfo @Inject constructor() {
+    val text: String = "Hello World! ${MainActivity.id++}"
+//    val count = staticCounter++
 }
 
-class NormalMagic @Inject constructor() {
-    val count = staticCounter++
+class NotScopedInfo @Inject constructor() {
+    val text: String = "Hello World! ${MainActivity.id++}"
+//    val count = staticCounter++
 }
