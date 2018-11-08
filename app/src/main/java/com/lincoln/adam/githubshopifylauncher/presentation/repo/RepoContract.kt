@@ -17,7 +17,7 @@ interface RepoContract {
 
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter : BasePresenter<View> {
 
         fun onSwipeRefresh()
 

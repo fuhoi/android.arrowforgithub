@@ -1,7 +1,11 @@
 package com.lincoln.adam.githubshopifylauncher.presentation
 
-interface BasePresenter {
+interface BasePresenter<T> {
 
-    fun start()
+//    fun start()
+
+    fun takeView(view: T)
+
+    fun dropView()
 
 }
