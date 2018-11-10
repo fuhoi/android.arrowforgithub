@@ -27,6 +27,8 @@ Goals:
 
 The architectural pattern chosen was Model-View-Presenter (MVP) as a balance between separation of concerns, existing knowledge and speed to a minimum viable product.
 
+User takes action -> View talks to Presenter -> Presenter talks to Data -> Presenter tells View what to do.
+
 # Libraries
 
 3rd party libraries:
@@ -40,6 +42,7 @@ Google:
 * gson
 * recyclerview
 * room
+* [Dagger 2](https://github.com/google/dagger)
 
 # To Do
 
@@ -77,6 +80,8 @@ Google:
 * Callgraphy for font-awesome / material icon font
 * Dashboard with Cast API
 * Smart watch ... listen for incoming connections / shares and open app on phone?  Small dashboard with notifications?
+* Raspi Tv dashboard to monitor app dev / build / agile / deployments / installs
+* [Palette API](https://developer.android.com/training/material/palette-colors)
 
 # Resources
 

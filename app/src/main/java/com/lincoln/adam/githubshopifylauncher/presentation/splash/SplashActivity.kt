@@ -9,6 +9,11 @@ import com.lincoln.adam.githubshopifylauncher.presentation.home.HomeActivity
 
 class SplashActivity : BaseActivity(), SplashContract.View {
 
+    // https://android.jlelse.eu/the-complete-android-splash-screen-guide-c7db82bce565
+    // Detect if there is a connection:
+    // If yes, clear cache and load resources.
+    // If no, route to next activity, display snackbar and display cached data while attempting to load from internet.
+
     override lateinit var presenter: SplashContract.Presenter
 
     override var isActive: Boolean = false
@@ -30,7 +35,10 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     }
 
     override fun startHomeActivity() {
+        // HomeActivity.start(this)
+        // https://developer.android.com/guide/components/activities/tasks-and-back-stack
         startActivity(Intent(baseContext, HomeActivity::class.java))
+        finish()
     }
 
 }
