@@ -2,7 +2,7 @@ package com.lincoln.adam.githubshopifylauncher.data.source.local
 
 import com.lincoln.adam.githubshopifylauncher.data.RepoModel
 import com.lincoln.adam.githubshopifylauncher.data.source.RepoDataSource
-import com.lincoln.adam.githubshopifylauncher.util.AppExecutors
+import com.lincoln.adam.githubshopifylauncher.presentation.util.AppExecutors
 
 class RepoLocalDataSource private constructor(
     private val appExecutors: AppExecutors,
