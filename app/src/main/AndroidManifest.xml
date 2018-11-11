@@ -2,7 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.lincoln.adam.githubshopifylauncher"
+    package="com.adam_lincoln.android.arrowforgithub"
     >
 
     <uses-permission android:name="android.permission.INTERNET" />

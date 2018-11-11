@@ -19,7 +19,8 @@
     -->
 
     <!--<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />-->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar" />
+    <style name="AppTheme"
+           parent="Theme.MaterialComponents.Light.NoActionBar" />
 
     <style name="AppTheme.Color">
         <item name="colorPrimary">@color/colorPrimary</item>

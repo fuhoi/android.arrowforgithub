@@ -1,10 +1,10 @@
-# android.github.shopify
+# Arrow for GitHub
 
-[![CircleCI](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop.svg?style=svg)](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop)
-[![CircleCI](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop.svg?style=shield)](https://circleci.com/gh/fuhoi/android.github.shopify/tree/develop)
-[![codecov](https://codecov.io/gh/fuhoi/android.github.shopify/branch/develop/graph/badge.svg)](https://codecov.io/gh/fuhoi/android.github.shopify)
+[![CircleCI](https://circleci.com/gh/adam-lincoln/android.arrowforgithub/tree/develop.svg?style=svg)](https://circleci.com/gh/adam-lincoln/android.arrowforgithub/tree/develop)
+[![CircleCI](https://circleci.com/gh/adam-lincoln/android.arrowforgithub/tree/develop.svg?style=shield)](https://circleci.com/gh/adam-lincoln/android.arrowforgithub/tree/develop)
+[![codecov](https://codecov.io/gh/adam-lincoln/android.arrowforgithub/branch/develop/graph/badge.svg)](https://codecov.io/gh/adam-lincoln/android.arrowforgithub)
 
-A demostration app with a single recycler view, displaying public repositories for the Shopify organisation using the Github Developer API.
+A demostration app with a recycler view, displaying public repositories for the Shopify organisation using the Github Developer API.
 
 ![](intro.gif)
 

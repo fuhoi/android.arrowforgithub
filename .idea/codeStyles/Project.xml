@@ -56,10 +56,12 @@
     </Objective-C-extensions>
     <XML>
       <option name="XML_ATTRIBUTE_WRAP" value="2" />
+      <option name="XML_KEEP_BLANK_LINES" value="1" />
       <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
     </XML>
     <codeStyleSettings language="XML">
       <option name="RIGHT_MARGIN" value="200" />
+      <option name="SOFT_MARGINS" value="200" />
       <indentOptions>
         <option name="CONTINUATION_INDENT_SIZE" value="4" />
       </indentOptions>
