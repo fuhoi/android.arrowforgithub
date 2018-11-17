@@ -87,13 +87,36 @@ class RepoFragment : Fragment(), RepoContract.View {
         return super.onOptionsItemSelected(item)
     }
 
-    override fun setLoadingIndicator(active: Boolean) {
-        with(swipeRefreshLayout) {
-            post { isRefreshing = active }
-        }
+    override fun showEmptyState() {
+        emptyState.visibility = View.VISIBLE
+        errorState.visibility = View.GONE
+        loadingState.visibility = View.GONE
+        recyclerView.visibility = View.GONE
+        swipeRefreshLayout.post { swipeRefreshLayout.isRefreshing = false }
+    }
+
+    override fun showLoadingState() {
+        emptyState.visibility = View.GONE
+        errorState.visibility = View.GONE
+        loadingState.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        swipeRefreshLayout?.post { swipeRefreshLayout?.isRefreshing = true }
+    }
+
+    override fun showErrorState() {
+        emptyState.visibility = View.GONE
+        errorState.visibility = View.VISIBLE
+        loadingState.visibility = View.GONE
+        recyclerView.visibility = View.GONE
+        swipeRefreshLayout.post { swipeRefreshLayout.isRefreshing = false }
     }
 
     override fun showRepoList(repoList: List<RepoViewModel>) {
+        emptyState.visibility = View.GONE
+        errorState.visibility = View.GONE
+        loadingState.visibility = View.GONE
+        recyclerView.visibility = View.VISIBLE
+        swipeRefreshLayout.post { swipeRefreshLayout.isRefreshing = false }
         repoAdapter.repoList = repoList
         recyclerView.scheduleLayoutAnimation()  // Forces items to always animate.
     }

@@ -6,9 +6,11 @@ interface RepoDataSource {
 
     interface RepoCallback {
 
-        fun onLoaded(repoList: List<RepoModel>)
+        fun onError()
 
-        fun onDataNotAvailable()
+        fun onNoData()
+
+        fun onLoaded(repoList: List<RepoModel>)
 
     }
 

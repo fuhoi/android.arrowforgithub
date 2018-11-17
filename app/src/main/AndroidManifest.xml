@@ -6,6 +6,7 @@
     >
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,6 +30,10 @@
         <activity
             android:name=".presentation.home.HomeActivity"
             android:label="@string/activity_home_title"
+            />
+        <activity
+            android:name=".presentation.theme.ThemeActivity"
+            android:label="@string/dialog_title_theme"
             />
     </application>
 </manifest>

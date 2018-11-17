@@ -41,14 +41,20 @@ class RepoRepository(
         } else {
             // Query the local storage if available. If not, query the network.
             repoLocalDataSource.getRepos(object : RepoDataSource.RepoCallback {
+
+                override fun onError() {
+                    repoCallback.onError()
+                }
+
+                override fun onNoData() {
+                    getReposFromRemoteDataSource(repoCallback)
+                }
+
                 override fun onLoaded(repoList: List<RepoModel>) {
                     refreshCache(repoList)
                     repoCallback.onLoaded(ArrayList(cachedRepos.values))
                 }
 
-                override fun onDataNotAvailable() {
-                    getReposFromRemoteDataSource(repoCallback)
-                }
             })
         }
     }
@@ -79,15 +85,21 @@ class RepoRepository(
 
     private fun getReposFromRemoteDataSource(repoCallback: RepoDataSource.RepoCallback) {
         repoRemoteDataSource.getRepos(object : RepoDataSource.RepoCallback {
+
+            override fun onError() {
+                repoCallback.onError()
+            }
+
+            override fun onNoData() {
+                repoCallback.onNoData()
+            }
+
             override fun onLoaded(repoList: List<RepoModel>) {
                 refreshCache(repoList)
                 refreshLocalDataSource(repoList)
                 repoCallback.onLoaded(ArrayList(cachedRepos.values))
             }
 
-            override fun onDataNotAvailable() {
-                repoCallback.onDataNotAvailable()
-            }
         })
     }
 

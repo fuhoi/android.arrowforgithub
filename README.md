@@ -82,6 +82,12 @@ Google:
 * Smart watch ... listen for incoming connections / shares and open app on phone?  Small dashboard with notifications?
 * Raspi Tv dashboard to monitor app dev / build / agile / deployments / installs
 * [Palette API](https://developer.android.com/training/material/palette-colors)
+* [Debounce](https://stackoverflow.com/questions/16534369/avoid-button-multiple-rapid-clicks)
+* [Kotlin – Sort List of Objects with Comparator Example](http://kotlination.com/kotlin/kotlin-sort-list-of-objects-with-comparator-example)
+* [Android - RecyclerView - Sticky Header](https://gist.github.com/saber-solooki/edeb57be63d2a60ef551676067c66c71)
+* [CircleCI Unit test meta data](https://circleci.com/docs/2.0/collect-test-data/?mkt_tok=eyJpIjoiTUdKaE1EZzBNalUwWVROaCIsInQiOiJmS3dOSmd0S2QrVkpVbFlQbGdjb2MzV2tTaEg0U1FiTGxCNHhDNFR4OGlLbklYRnF0T3NtNEg1b1FaYVVcL2RyRWExZkZPOE5OelN5amx4UkpEbDBzNVZFUGo4NUlFY1FybXJjVmpHUzdteHY5UUVNWWNOdEN1RnFEMnk0bW83bXIifQ%3D%3D#gradle-junit-test-results)
+* [LeakCanary](https://github.com/square/leakcanary)
+* [Stetho](http://facebook.github.io/stetho)
 
 # Resources
 
@@ -100,3 +106,7 @@ Google:
 * [Kotlin style guide](https://developer.android.com/kotlin/style-guide)
 * [apiwave](http://apiwave.com/java/api/junit.framework.Assert)
 * [Build local unit tests](https://developer.android.com/training/testing/unit-testing/local-unit-tests)
+* [Google Unsplash](https://github.com/googlesamples/android-unsplash)
+* [nickbutcher/plaid](https://github.com/nickbutcher/plaid)
+* [Star Wars API](https://swapi.co/)
+* [CodePath](https://guides.codepath.com/android)

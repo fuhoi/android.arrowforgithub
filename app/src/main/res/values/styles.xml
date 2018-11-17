@@ -22,17 +22,132 @@
     <style name="AppTheme"
            parent="Theme.MaterialComponents.Light.NoActionBar" />
 
+    <style name="AppTheme.NoColor">
+        <item name="colorPrimary">@color/md_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_grey_500</item>
+        <item name="colorAccent">@color/md_grey_500</item>
+        <item name="android:textColorPrimary">@color/md_grey_500</item>
+    </style>
+
     <style name="AppTheme.Color">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppTheme.NoColor">
+    <style name="AppTheme.Color.Red">
+        <item name="colorPrimary">@color/md_red_500</item>
+        <item name="colorPrimaryDark">@color/md_red_800</item>
+        <item name="colorAccent">@color/md_red_A400</item>
+        <item name="android:textColorPrimary">@color/md_red_500</item>
+    </style>
+
+    <style name="AppTheme.Color.Pink">
+        <item name="colorPrimary">@color/md_pink_500</item>
+        <item name="colorPrimaryDark">@color/md_pink_800</item>
+        <item name="colorAccent">@color/md_pink_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Purple">
+        <item name="colorPrimary">@color/md_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_purple_800</item>
+        <item name="colorAccent">@color/md_purple_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.DeepPurple">
+        <item name="colorPrimary">@color/md_deep_purple_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_purple_800</item>
+        <item name="colorAccent">@color/md_deep_purple_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Indigo">
+        <item name="colorPrimary">@color/md_indigo_500</item>
+        <item name="colorPrimaryDark">@color/md_indigo_800</item>
+        <item name="colorAccent">@color/md_indigo_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Blue">
+        <item name="colorPrimary">@color/md_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_800</item>
+        <item name="colorAccent">@color/md_blue_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.LightBlue">
+        <item name="colorPrimary">@color/md_light_blue_500</item>
+        <item name="colorPrimaryDark">@color/md_light_blue_800</item>
+        <item name="colorAccent">@color/md_light_blue_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Cyan">
+        <item name="colorPrimary">@color/md_cyan_500</item>
+        <item name="colorPrimaryDark">@color/md_cyan_800</item>
+        <item name="colorAccent">@color/md_cyan_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Teal">
+        <item name="colorPrimary">@color/md_teal_500</item>
+        <item name="colorPrimaryDark">@color/md_teal_800</item>
+        <item name="colorAccent">@color/md_teal_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Green">
+        <item name="colorPrimary">@color/md_green_500</item>
+        <item name="colorPrimaryDark">@color/md_green_800</item>
+        <item name="colorAccent">@color/md_green_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.LightGreen">
+        <item name="colorPrimary">@color/md_light_green_500</item>
+        <item name="colorPrimaryDark">@color/md_light_green_800</item>
+        <item name="colorAccent">@color/md_light_green_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Lime">
+        <item name="colorPrimary">@color/md_lime_500</item>
+        <item name="colorPrimaryDark">@color/md_lime_800</item>
+        <item name="colorAccent">@color/md_lime_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Yellow">
+        <item name="colorPrimary">@color/md_yellow_500</item>
+        <item name="colorPrimaryDark">@color/md_yellow_800</item>
+        <item name="colorAccent">@color/md_yellow_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Amber">
+        <item name="colorPrimary">@color/md_amber_500</item>
+        <item name="colorPrimaryDark">@color/md_amber_800</item>
+        <item name="colorAccent">@color/md_amber_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Orange">
+        <item name="colorPrimary">@color/md_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_orange_800</item>
+        <item name="colorAccent">@color/md_orange_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.DeepOrange">
+        <item name="colorPrimary">@color/md_deep_orange_500</item>
+        <item name="colorPrimaryDark">@color/md_deep_orange_800</item>
+        <item name="colorAccent">@color/md_deep_orange_A400</item>
+    </style>
+
+    <style name="AppTheme.Color.Brown">
+        <item name="colorPrimary">@color/md_brown_500</item>
+        <item name="colorPrimaryDark">@color/md_brown_800</item>
+        <item name="colorAccent">@color/md_brown_200</item>
+    </style>
+
+    <style name="AppTheme.Color.Grey">
         <item name="colorPrimary">@color/md_grey_500</item>
-        <item name="colorPrimaryDark">@color/md_grey_500</item>
-        <item name="colorAccent">@color/md_grey_500</item>
-        <item name="android:textColorPrimary">@color/md_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_grey_800</item>
+        <item name="colorAccent">@color/md_grey_200</item>
+    </style>
+
+    <style name="AppTheme.Color.BlueGrey">
+        <item name="colorPrimary">@color/md_blue_grey_500</item>
+        <item name="colorPrimaryDark">@color/md_blue_grey_800</item>
+        <item name="colorAccent">@color/md_blue_grey_200</item>
     </style>
 
     <style name="TextAppearance.AppCompat.Title.Color">

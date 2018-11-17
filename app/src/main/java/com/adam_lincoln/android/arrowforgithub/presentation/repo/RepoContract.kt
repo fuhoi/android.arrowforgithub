@@ -9,7 +9,11 @@ interface RepoContract {
 
         var isActive: Boolean
 
-        fun setLoadingIndicator(active: Boolean)
+        fun showEmptyState()
+
+        fun showLoadingState()
+
+        fun showErrorState()
 
         fun showRepoList(repoList: List<RepoViewModel>)
 
@@ -24,6 +28,8 @@ interface RepoContract {
         fun onRefreshClick()
 
         fun onForceRefreshClick()
+
+        fun onRetryClick()
 
         fun onGitHubUrlClick(repo: RepoViewModel)
 
