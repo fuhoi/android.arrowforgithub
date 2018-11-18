@@ -5,55 +5,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?listPreferredItemHeight"
+    android:minHeight="?listPreferredItemHeightSmall"
     android:clickable="true"
     android:focusable="true"
-    android:padding="8dp"
+    android:paddingStart="?android:listPreferredItemPaddingStart"
+    android:paddingLeft="?android:listPreferredItemPaddingLeft"
+    android:paddingEnd="?android:listPreferredItemPaddingEnd"
+    android:paddingRight="?android:listPreferredItemPaddingRight"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     >
 
-    <android.support.v7.widget.AppCompatRadioButton
-        android:id="@+id/radioButtonColorName"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageViewColourPrimary"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:srcCompat="@color/md_blue_500"
+        />
+
+    <Space
+        android:layout_width="8dp"
+        android:layout_height="0dp"
+        />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageViewColourPrimaryDark"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:srcCompat="@color/md_blue_800"
+        />
+
+    <Space
+        android:layout_width="8dp"
+        android:layout_height="0dp"
+        />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/imageViewColourAccent"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        tools:srcCompat="@color/md_blue_200"
+        />
+
+    <Space
+        android:layout_width="16dp"
+        android:layout_height="0dp"
+        />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textViewColourName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/md_color_name_blue"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:clickable="false"
-        android:focusable="false"
-        />
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imageViewColorPrimary"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:srcCompat="@color/md_blue_500"
-        />
-
-    <Space
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        />
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imageViewColorPrimaryDark"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:srcCompat="@color/md_blue_800"
-        />
-
-    <Space
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        />
-
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/imageViewColorAccent"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:srcCompat="@color/md_blue_200"
+        tools:text="@string/md_color_name_blue"
         />
 
 </android.support.v7.widget.LinearLayoutCompat>

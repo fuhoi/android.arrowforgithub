@@ -1,14 +1,12 @@
 package com.adam_lincoln.android.arrowforgithub.presentation.theme
 
 import android.content.Context
-import android.net.sip.SipSession
 import android.support.v7.widget.AppCompatImageView
-import android.support.v7.widget.AppCompatRadioButton
+import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.adam_lincoln.android.arrowforgithub.R
 import kotlinx.android.synthetic.main.dialog_theme_item.view.*
 
@@ -33,17 +31,17 @@ class ThemeAdapter(
         val viewModel = list[position]
         holder.view.tag = viewModel
 
-        holder.radioButtonColorName.text = context.getString(viewModel.nameResId)
-        holder.imageViewColorPrimary.setImageResource(viewModel.colorPrimaryResId)
-        holder.imageViewColorPrimaryDark.setImageResource(viewModel.colorPrimaryDarkResId)
-        holder.imageViewColorAccent.setImageResource(viewModel.colorAccentColorResId)
+        holder.textViewColourName.text = context.getString(viewModel.colourNameResId)
+        holder.imageViewColourPrimary.setImageResource(viewModel.colourPrimaryResId)
+        holder.imageViewColourPrimaryDark.setImageResource(viewModel.colourPrimaryDarkResId)
+        holder.imageViewColourAccent.setImageResource(viewModel.colourAccentColorResId)
     }
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val radioButtonColorName: AppCompatRadioButton = view.radioButtonColorName
-        val imageViewColorPrimary: AppCompatImageView = view.imageViewColorPrimary
-        val imageViewColorPrimaryDark: AppCompatImageView = view.imageViewColorPrimaryDark
-        val imageViewColorAccent: AppCompatImageView = view.imageViewColorAccent
+        val textViewColourName: AppCompatTextView = view.textViewColourName
+        val imageViewColourPrimary: AppCompatImageView = view.imageViewColourPrimary
+        val imageViewColourPrimaryDark: AppCompatImageView = view.imageViewColourPrimaryDark
+        val imageViewColourAccent: AppCompatImageView = view.imageViewColourAccent
 
         init {
             view.setOnClickListener { onThemeSelectedListener.onThemeSelectedListener(view.tag as ThemeViewModel) }
