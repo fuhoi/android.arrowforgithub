@@ -8,6 +8,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import com.adam_lincoln.android.arrowforgithub.R
 import com.adam_lincoln.android.arrowforgithub.presentation.BaseBlurDialogFragment
+import android.app.Activity
+import android.content.Context
+import android.util.TypedValue
+import android.support.v7.view.ContextThemeWrapper
+import android.view.WindowManager
+import kotlin.math.roundToInt
 
 class ThemeDialogFragment : BaseBlurDialogFragment() {
 
@@ -34,39 +40,43 @@ class ThemeDialogFragment : BaseBlurDialogFragment() {
     private val themeModelList = listOf(
         redThemeModel,
         pinkThemeModel,
-        purpleThemeModel
-//        deepPurpleThemeModel,
-//        indigoThemeModel,
-//        blueThemeModel,
-//        lightBlueThemeModel,
-//        cyanThemeModel,
-//        tealThemeModel,
-//        greenThemeModel,
-//        lightGreenThemeModel,
-//        limeThemeModel,
-//        yellowThemeModel,
-//        amberThemeModel,
-//        orangeThemeModel,
-//        deepOrangeThemeModel,
-//        brownThemeModel,
-//        greyThemeModel,
-//        blueGreyThemeModel
+        purpleThemeModel,
+        deepPurpleThemeModel,
+        indigoThemeModel,
+        blueThemeModel,
+        lightBlueThemeModel,
+        cyanThemeModel,
+        tealThemeModel,
+        greenThemeModel,
+        lightGreenThemeModel,
+        limeThemeModel,
+        yellowThemeModel,
+        amberThemeModel,
+        orangeThemeModel,
+        deepOrangeThemeModel,
+        brownThemeModel,
+        greyThemeModel,
+        blueGreyThemeModel
     )
 
     private val themeAdapterListener = object : ThemeAdapter.OnThemeSelectedListener {
         override fun onThemeSelectedListener(theme: ThemeViewModel) {
-            // no-op.
+            // TODO: Select theme.
         }
     }
 
     private val clickListener = DialogInterface.OnClickListener { dialog, which ->
+        // TODO: Set preference.
     }
+
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val adapter = ThemeAdapter(context!!, themeModelList, themeAdapterListener)
         val customView = LayoutInflater.from(context).inflate(R.layout.dialog_theme, null, false)
-        val recyclerView = customView.findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView = customView.findViewById(R.id.recyclerView)
         recyclerView.adapter = adapter
+        recyclerView.setHasFixedSize(true)
         return AlertDialog.Builder(context!!)
             .setIcon(R.drawable.ic_color_lens_black_24dp)
             .setTitle(R.string.dialog_title_theme)
@@ -74,5 +84,33 @@ class ThemeDialogFragment : BaseBlurDialogFragment() {
             .setView(customView)
             .setPositiveButton(android.R.string.ok, clickListener)
             .create()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val typedValue = TypedValue()
+        (context as Activity).theme.resolveAttribute(android.R.attr.listPreferredItemHeightSmall, typedValue, true)
+        val metrics = android.util.DisplayMetrics()
+        val wm = activity!!.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        wm.defaultDisplay.getMetrics(metrics)
+        val listPreferredItemHeightSmall = typedValue.getDimension(metrics)
+        val heightInt = listPreferredItemHeightSmall.roundToInt() * 4
+        val layoutParams = recyclerView.layoutParams
+        layoutParams.height = heightInt
+        recyclerView.layoutParams = layoutParams
+    }
+
+    // getAttributeSize(theme, android.R.attr.textAppearanceLarge, android.R.attr.textSize) -> return android:textSize
+    private fun getAttributeSize(themeId: Int, attrId: Int, attrNameId: Int): Int {
+        val typedValue = TypedValue()
+        val ctx = ContextThemeWrapper(context, themeId)
+        ctx.theme.resolveAttribute(attrId, typedValue, true)
+        val attributes = intArrayOf(attrNameId)
+        val index = 0
+        val array = ctx.obtainStyledAttributes(typedValue.data, attributes)
+        val res = array.getDimensionPixelSize(index, 0)
+        array.recycle()
+        return res
     }
 }
