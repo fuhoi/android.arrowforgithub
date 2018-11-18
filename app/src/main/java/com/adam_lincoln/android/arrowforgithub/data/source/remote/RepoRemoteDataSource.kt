@@ -55,7 +55,9 @@ class RepoRemoteDataSource : RepoDataSource {
             builder.addInterceptor(logging)
         }
 
-        builder.addNetworkInterceptor(StethoInterceptor())
+        if (BuildConfig.DEBUG) {
+            builder.addNetworkInterceptor(StethoInterceptor())  // See: chrome://inspect/#devices
+        }
 
         builder.connectTimeout(3L, TimeUnit.SECONDS)
         builder.readTimeout(3L, TimeUnit.SECONDS)

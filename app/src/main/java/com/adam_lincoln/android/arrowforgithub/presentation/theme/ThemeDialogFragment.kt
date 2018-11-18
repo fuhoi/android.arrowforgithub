@@ -13,6 +13,7 @@ import android.content.Context
 import android.util.TypedValue
 import android.support.v7.view.ContextThemeWrapper
 import android.view.WindowManager
+import timber.log.Timber
 import kotlin.math.roundToInt
 
 class ThemeDialogFragment : BaseBlurDialogFragment() {
@@ -62,11 +63,14 @@ class ThemeDialogFragment : BaseBlurDialogFragment() {
     private val themeAdapterListener = object : ThemeAdapter.OnThemeSelectedListener {
         override fun onThemeSelectedListener(theme: ThemeViewModel) {
             // TODO: Select theme.
+            Timber.d("theme: $theme")
         }
     }
 
     private val clickListener = DialogInterface.OnClickListener { dialog, which ->
         // TODO: Set preference.
+//        val theme = themeModelList[which]
+        Timber.d("which: $which")
     }
 
     private lateinit var recyclerView: RecyclerView
