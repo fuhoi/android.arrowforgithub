@@ -70,6 +70,7 @@ Google:
 * Navigation Drawer
 * [Kotlin – Sort List of Objects with Comparator Example](http://kotlination.com/kotlin/kotlin-sort-list-of-objects-with-comparator-example)
 * [Android - RecyclerView - Sticky Header](https://gist.github.com/saber-solooki/edeb57be63d2a60ef551676067c66c71)
+* [Searchable-RecyclerView-Demo](https://github.com/Wrdlbrnft/Searchable-RecyclerView-Demo)
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
 * Add a script that clicks through the app and records a video, stops and saves it to file.
 * Implement loading / empty with retry / no network with retry
