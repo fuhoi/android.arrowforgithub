@@ -21,47 +21,51 @@ class RepoPresenter(val repoRepository: RepoRepository, val repoView: RepoContra
 
     override fun onForceRefreshClick() = loadRepos(true)
 
+    override fun onRetryClick() = loadRepos(true)
+
     private fun loadRepos(forceUpdate: Boolean) {
         loadRepos(forceUpdate || firstLoad, true)
         firstLoad = false
     }
 
     private fun loadRepos(forceUpdate: Boolean, showLoadingUI: Boolean) {
-        if (showLoadingUI)
-            repoView.setLoadingIndicator(true)
+        if (repoView.isActive && showLoadingUI)
+            repoView.showLoadingState()
 
         if (forceUpdate)
             repoRepository.refreshRepos()
 
         repoRepository.getRepos(object : RepoDataSource.RepoCallback {
-            override fun onLoaded(repoList: List<RepoModel>) {
-                // The view may not be able to handle UI updates anymore.
-                if (!repoView.isActive)
-                    return
 
-                if (showLoadingUI)
-                    repoView.setLoadingIndicator(false)
-
-                val repoViewModelList =
-                    mapRepoModelToRepoViewModel(repoList)
-                processRepos(repoViewModelList)
+            override fun onError() {
+                if (repoView.isActive)
+                    repoView.showErrorState()
             }
 
-            override fun onDataNotAvailable() {
-                TODO("not implemented")
+            override fun onNoData() {
+                if (repoView.isActive)
+                    repoView.showEmptyState()
+            }
+
+            override fun onLoaded(repoList: List<RepoModel>) {
+                val repoViewModelList = mapRepoModelToRepoViewModel(repoList)
+                processRepos(repoViewModelList)
             }
         })
     }
 
     private fun processRepos(repoList: List<RepoViewModel>) {
-        repoView.showRepoList(repoList)
+        if (repoView.isActive)
+            repoView.showRepoList(repoList)
     }
 
     override fun onGitHubUrlClick(repo: RepoViewModel) {
-        repoView.navigateToUrl(repo.github_url)
+        if (repoView.isActive)
+            repoView.navigateToUrl(repo.github_url)
     }
 
     override fun onHomepageUrlClick(repo: RepoViewModel) {
-        repoView.navigateToUrl(repo.homepage_url!!)
+        if (repoView.isActive)
+            repoView.navigateToUrl(repo.homepage_url!!)
     }
 }

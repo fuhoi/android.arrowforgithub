@@ -31,7 +31,7 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     }
 
     override fun startTimer() {
-        runOnUiThread { Handler().postDelayed({ presenter.onTimeCompleted() }, 3000) }
+        runOnUiThread { Handler().postDelayed({ presenter.onTimeCompleted() }, 1000) }
     }
 
     override fun startHomeActivity() {

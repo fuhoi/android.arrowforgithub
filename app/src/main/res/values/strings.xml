@@ -7,4 +7,31 @@
     <string name="loading">Loading…</string>
     <string name="github_url">GitHub</string>
     <string name="homepage_url">Homepage</string>
+    <string name="menu_theme">Theme</string>
+
+    <string name="dialog_title_theme">Theme</string>
+    v<string name="dialog_message_theme">Choose a theme</string>
+    <string name="md_color_name_red">Red</string>
+    <string name="md_color_name_pink">Pink</string>
+    <string name="md_color_name_purple">Purple</string>
+    <string name="md_color_name_deep_purple">Deep Purple</string>
+    <string name="md_color_name_indigo">Indigo</string>
+    <string name="md_color_name_blue">Blue</string>
+    <string name="md_color_name_light_blue">Light Blue</string>
+    <string name="md_color_name_cyan">Cyan</string>
+    <string name="md_color_name_teal">Teal</string>
+    <string name="md_color_name_green">Green</string>
+    <string name="md_color_name_light_green">Light Green</string>
+    <string name="md_color_name_lime">Lime</string>
+    <string name="md_color_name_yellow">Yellow</string>
+    <string name="md_color_name_amber">Amber</string>
+    <string name="md_color_name_orange">Orange</string>
+    <string name="md_color_name_deep_orange">Deep Orange</string>
+    <string name="md_color_name_brown">Brown</string>
+    <string name="md_color_name_grey">Grey</string>
+    <string name="md_color_name_blue_grey">Blue Grey</string>
+    <string name="empty">Empty</string>
+    <string name="error">Error</string>
+    <string name="user_pref_theme_key">user_pref_theme_key</string>
+
 </resources>

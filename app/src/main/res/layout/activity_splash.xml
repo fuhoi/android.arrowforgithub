@@ -10,55 +10,53 @@
     tools:context=".presentation.splash.SplashActivity"
     >
 
-    <android.support.v7.widget.AppCompatImageView
-        android:id="@+id/app_icon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:srcCompat="@drawable/ic_app_icon"
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.5"
-        />
+        >
 
-    <Space
-        android:id="@+id/app_icon_spacer"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        app:layout_constraintTop_toBottomOf="@id/app_icon"
-        />
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/app_icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:srcCompat="@drawable/ic_app_icon"
+            />
 
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/app_name"
-        style="@style/TextAppearance.AppCompat.Title.Color"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        app:layout_constraintTop_toBottomOf="@id/app_icon_spacer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        />
+        <Space
+            android:id="@+id/app_icon_spacer"
+            android:layout_width="0dp"
+            android:layout_height="24dp"
+            />
 
-    <View
-        android:id="@+id/app_name_spacer"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        app:layout_constraintTop_toBottomOf="@id/app_name"
-        />
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/app_name"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="?android:progressBarStyleHorizontal"
-        android:indeterminate="true"
-        android:layout_width="128dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/app_name_spacer"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:progressBarStyleHorizontal"
+            android:indeterminate="true"
+            android:layout_width="128dp"
+            android:layout_height="wrap_content"
+            />
+
+    </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.constraint.ConstraintLayout>

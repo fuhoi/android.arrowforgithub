@@ -44,6 +44,14 @@ Google:
 * room
 * [Dagger 2](https://github.com/google/dagger)
 
+# Done
+
+* Choose any colour via a Settings menu, store in sharedprefs
+* [Stetho](http://facebook.github.io/stetho/)
+* [Timber](https://github.com/JakeWharton/timber)
+* [Calligraphy](https://github.com/InflationX/Calligraphy)
+* [LeakCanary](https://github.com/square/leakcanary)
+
 # To Do
 
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
@@ -65,23 +73,32 @@ Google:
 * Separate memory / disk (room) / web layers with a status indicator of where the data is and it's size
 * Add thread executor for background tasks like mapping - might be solved with Rx
 * Free vs Paid - ad supported
-* Choose any colour via a Settings menu, store in sharedprefs - Palette to extract colour from the Orgs icon?
-* Co-ordinator layout
+* Palette to extract colour from the Orgs icon?
+* Coordinator layout
 * Share sheet with text, email, QR Code and Nearby API support
 * Navigation Drawer
-* Authenitication via Login with Google / Facebook - Share with "my devices"
+* Authentication via Login with Google / Facebook - Share with "my devices"
 * Dependant API calls
     * https://api.github.com/orgs/shopify/repos
     * For each repo where fork: true -> https://api.github.com/repos/Shopify/delayed_job and return parent.full_name: "tobi/delayed_job"
 * To Stateful Presenter or not
-* Stetho
-* Timber
-* pidcat (on Windows? bash, Windows Subsystem for Linux, Python - yay!)
-* Callgraphy for font-awesome / material icon font
+* [pidcat](https://github.com/JakeWharton/pidcat)
+    * on Windows? bash, Windows Subsystem for Linux, Python - yay!
+    * C:\Users\User\AppData\Local\Android\Sdk\platform-tools
+    * C:\git\pidcat
+    * user / user
+    * pidcat.py com.adam_lincoln.android.arrowforgithub
+    * echo $PATH
+    * export PATH=$PATH:/mnt/c/Users/User/AppData/Local/Android/Sdk/platform-tools
+    * export PATH=$PATH:/mnt/c/git/pidcat
 * Dashboard with Cast API
 * Smart watch ... listen for incoming connections / shares and open app on phone?  Small dashboard with notifications?
 * Raspi Tv dashboard to monitor app dev / build / agile / deployments / installs
 * [Palette API](https://developer.android.com/training/material/palette-colors)
+* [Debounce](https://stackoverflow.com/questions/16534369/avoid-button-multiple-rapid-clicks)
+* [Kotlin – Sort List of Objects with Comparator Example](http://kotlination.com/kotlin/kotlin-sort-list-of-objects-with-comparator-example)
+* [Android - RecyclerView - Sticky Header](https://gist.github.com/saber-solooki/edeb57be63d2a60ef551676067c66c71)
+* [CircleCI Unit test meta data](https://circleci.com/docs/2.0/collect-test-data/?mkt_tok=eyJpIjoiTUdKaE1EZzBNalUwWVROaCIsInQiOiJmS3dOSmd0S2QrVkpVbFlQbGdjb2MzV2tTaEg0U1FiTGxCNHhDNFR4OGlLbklYRnF0T3NtNEg1b1FaYVVcL2RyRWExZkZPOE5OelN5amx4UkpEbDBzNVZFUGo4NUlFY1FybXJjVmpHUzdteHY5UUVNWWNOdEN1RnFEMnk0bW83bXIifQ%3D%3D#gradle-junit-test-results)
 
 # Resources
 
@@ -100,3 +117,7 @@ Google:
 * [Kotlin style guide](https://developer.android.com/kotlin/style-guide)
 * [apiwave](http://apiwave.com/java/api/junit.framework.Assert)
 * [Build local unit tests](https://developer.android.com/training/testing/unit-testing/local-unit-tests)
+* [Google Unsplash](https://github.com/googlesamples/android-unsplash)
+* [nickbutcher/plaid](https://github.com/nickbutcher/plaid)
+* [Star Wars API](https://swapi.co/)
+* [CodePath](https://guides.codepath.com/android)

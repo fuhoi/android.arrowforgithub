@@ -31,7 +31,7 @@ class RepoLocalDataSource private constructor(
             val repoList = repoDao.getRepos()
             appExecutors.mainThread.execute {
                 if (repoList.isEmpty()) {
-                    repoCallback.onDataNotAvailable()  // This will be called if the table is new or just empty.
+                    repoCallback.onNoData()  // This will be called if the table is new or just empty.
                 } else {
                     repoCallback.onLoaded(repoList)
                 }
