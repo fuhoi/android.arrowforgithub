@@ -33,36 +33,49 @@ User takes action -> View talks to Presenter -> Presenter talks to Data -> Prese
 
 3rd party libraries:
 
-* okhttp
-* retrofit
-* joda-time
+* [okhttp3](http://square.github.io/okhttp)
+    * An HTTP & HTTP/2 client for Android and Java applications.
+* [retrofit](https://square.github.io/retrofit)
+    * Retrofit turns your HTTP API into a Java interface.
+* [joda-time](https://github.com/JodaOrg/joda-time)
+    * Joda-Time provides a quality replacement for the Java date and time classes.
+    * https://www.joda.org/joda-time
 
 Google:
 
-* gson
-* recyclerview
-* room
+* [gson](https://github.com/google/gson)
+    * A Java serialization/deserialization library to convert Java Objects into JSON and back
+* [recyclerview](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+* [room](https://developer.android.com/topic/libraries/architecture/room)
 * [Dagger 2](https://github.com/google/dagger)
 
 # Done
 
 * Choose any colour via a Settings menu, store in sharedprefs
-* [Stetho](http://facebook.github.io/stetho/)
+* [Stetho](http://facebook.github.io/stetho)
+    * A debug bridge for Android applications
+    * chrome://inspect/#devices
 * [Timber](https://github.com/JakeWharton/timber)
+    * A logger with a small, extensible API which provides utility on top of Android's normal Log class.
 * [Calligraphy](https://github.com/InflationX/Calligraphy)
+    * Custom fonts in Android the easy way.
 * [LeakCanary](https://github.com/square/leakcanary)
+    * A memory leak detection library for Android and Java.
 
 # To Do
 
+* RecyclerView - sticky headers - a through z - requires a sortable / filterable repository
+* Filter - who doesn't love a magnifying glass in their toolbar?
+* Sort - Sort by fields displayed
+* Navigation Drawer
+* [Kotlin – Sort List of Objects with Comparator Example](http://kotlination.com/kotlin/kotlin-sort-list-of-objects-with-comparator-example)
+* [Android - RecyclerView - Sticky Header](https://gist.github.com/saber-solooki/edeb57be63d2a60ef551676067c66c71)
 * Dagger - at the moment injection is handled by an object that can be override for unit tests via product flavours
 * Add a script that clicks through the app and records a video, stops and saves it to file.
 * Implement loading / empty with retry / no network with retry
 * List items - chips are clickable?  Setting foreground=transparent / clickabled = false / focusable = false didn't help.
 * Rx - too much work is being done on the UI thread leading to some UI jank on the emulator when loading items
 * Clean - implement use cases and separate layers into data / domain / presentation
-* RecyclerView - sticky headers - a through z - requires a sortable / filterable repository
-* Filter - who doesn't love a magnifying glass in their toolbar?
-* Sort - Sort by fields displayed
 * Unit tests
 * Developed for Pixel 2 API 27 - test for more devices / screen sizes / API levels
 * Tablet mode
@@ -76,7 +89,6 @@ Google:
 * Palette to extract colour from the Orgs icon?
 * Coordinator layout
 * Share sheet with text, email, QR Code and Nearby API support
-* Navigation Drawer
 * Authentication via Login with Google / Facebook - Share with "my devices"
 * Dependant API calls
     * https://api.github.com/orgs/shopify/repos
@@ -96,9 +108,8 @@ Google:
 * Raspi Tv dashboard to monitor app dev / build / agile / deployments / installs
 * [Palette API](https://developer.android.com/training/material/palette-colors)
 * [Debounce](https://stackoverflow.com/questions/16534369/avoid-button-multiple-rapid-clicks)
-* [Kotlin – Sort List of Objects with Comparator Example](http://kotlination.com/kotlin/kotlin-sort-list-of-objects-with-comparator-example)
-* [Android - RecyclerView - Sticky Header](https://gist.github.com/saber-solooki/edeb57be63d2a60ef551676067c66c71)
 * [CircleCI Unit test meta data](https://circleci.com/docs/2.0/collect-test-data/?mkt_tok=eyJpIjoiTUdKaE1EZzBNalUwWVROaCIsInQiOiJmS3dOSmd0S2QrVkpVbFlQbGdjb2MzV2tTaEg0U1FiTGxCNHhDNFR4OGlLbklYRnF0T3NtNEg1b1FaYVVcL2RyRWExZkZPOE5OelN5amx4UkpEbDBzNVZFUGo4NUlFY1FybXJjVmpHUzdteHY5UUVNWWNOdEN1RnFEMnk0bW83bXIifQ%3D%3D#gradle-junit-test-results)
+* [spotless](https://github.com/diffplug/spotless)
 
 # Resources
 
