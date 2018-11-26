@@ -2,58 +2,58 @@
 <android.support.v7.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:id="@+id/container"
     android:layout_height="wrap_content"
-    android:minHeight="?listPreferredItemHeightSmall"
+    android:layout_width="match_parent"
     android:clickable="true"
     android:focusable="true"
-    android:paddingStart="?android:listPreferredItemPaddingStart"
-    android:paddingEnd="?android:listPreferredItemPaddingEnd"
-    android:orientation="horizontal"
     android:gravity="center_vertical"
+    android:minHeight="?listPreferredItemHeightSmall"
+    android:orientation="horizontal"
+    android:paddingEnd="?android:listPreferredItemPaddingEnd"
+    android:paddingStart="?android:listPreferredItemPaddingStart"
     >
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/imageViewColourPrimary"
-        android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_width="24dp"
         tools:srcCompat="@color/md_blue_500"
         />
 
     <Space
-        android:layout_width="8dp"
         android:layout_height="0dp"
+        android:layout_width="8dp"
         />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/imageViewColourPrimaryDark"
-        android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_width="24dp"
         tools:srcCompat="@color/md_blue_800"
         />
 
     <Space
-        android:layout_width="8dp"
         android:layout_height="0dp"
+        android:layout_width="8dp"
         />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/imageViewColourAccent"
-        android:layout_width="24dp"
         android:layout_height="24dp"
+        android:layout_width="24dp"
         tools:srcCompat="@color/md_blue_200"
         />
 
     <Space
-        android:layout_width="16dp"
         android:layout_height="0dp"
+        android:layout_width="16dp"
         />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/textViewColourName"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
         tools:text="@string/md_color_name_blue"
         />
 

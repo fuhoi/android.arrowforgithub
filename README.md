@@ -100,7 +100,7 @@ Google:
     * C:\Users\User\AppData\Local\Android\Sdk\platform-tools
     * C:\git\pidcat
     * user / user
-    * pidcat.py com.adam_lincoln.android.arrowforgithub
+    * pidcat.py adamlincoln.android.arrowforgithub
     * echo $PATH
     * export PATH=$PATH:/mnt/c/Users/User/AppData/Local/Android/Sdk/platform-tools
     * export PATH=$PATH:/mnt/c/git/pidcat
@@ -111,6 +111,10 @@ Google:
 * [Debounce](https://stackoverflow.com/questions/16534369/avoid-button-multiple-rapid-clicks)
 * [CircleCI Unit test meta data](https://circleci.com/docs/2.0/collect-test-data/?mkt_tok=eyJpIjoiTUdKaE1EZzBNalUwWVROaCIsInQiOiJmS3dOSmd0S2QrVkpVbFlQbGdjb2MzV2tTaEg0U1FiTGxCNHhDNFR4OGlLbklYRnF0T3NtNEg1b1FaYVVcL2RyRWExZkZPOE5OelN5amx4UkpEbDBzNVZFUGo4NUlFY1FybXJjVmpHUzdteHY5UUVNWWNOdEN1RnFEMnk0bW83bXIifQ%3D%3D#gradle-junit-test-results)
 * [spotless](https://github.com/diffplug/spotless)
+* [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart)
+* [Konfetti](https://github.com/DanielMartinus/Konfetti)
+* [iosched](https://github.com/google/iosched)
+* [Indicator Fast Scroll](https://github.com/reddit/IndicatorFastScroll)
 
 # Resources
 
