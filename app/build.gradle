@@ -1,13 +1,15 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt'
-apply plugin: 'jacoco-android'
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-android-extensions"
+apply plugin: "kotlin-kapt"
+apply plugin: "jacoco-android"
+
+apply from: 'app-config.gradle'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.adam_lincoln.android.arrowforgithub"
+        applicationId "com.adamlincoln.android.arrowforgithub"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.versionCode
@@ -15,21 +17,33 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         kapt {
-            generateStubs = true
             arguments {
                 arg("room.schemaLocation", "$projectDir/schemas".toString())
             }
         }
+        // Glide / SupportRSBlurTransformation
         renderscriptTargetApi rootProject.ext.targetSdkVersion
         renderscriptSupportModeEnabled true
+    }
+    signingConfigs {
+        debug {
+            // See: app-config.gradle and app-config.properties
+            keyAlias SIGNING_CONFIG_KEY_ALIAS
+            keyPassword SIGNING_CONFIG_KEY_PASSWORD
+            storeFile file(SIGNING_CONFIG_STORE_FILE)
+            storePassword SIGNING_CONFIG_STORE_PASSWORD
+        }
     }
     buildTypes {
         debug {
             testCoverageEnabled true
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-DEBUG"
+            signingConfig signingConfigs.debug
         }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
     compileOptions {
@@ -38,12 +52,12 @@ android {
     }
     lintOptions {
         abortOnError true
-        fatal 'StopShip'
+        fatal "StopShip"
     }
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests.all {
         testLogging {
-            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            events "passed", "skipped", "failed", "standardOut", "standardError"
         }
     }
 }
@@ -53,7 +67,7 @@ android.applicationVariants.all { variant ->
     if (variant.buildType.name == "debug") {
         def aptOutputDir = new File(buildDir, "generated/source/apt/${variant.unitTestVariant.dirName}")
         variant.unitTestVariant.addJavaSourceFoldersToModel(aptOutputDir)
-        assembleDebug.finalizedBy('assembleDebugUnitTest')
+        assembleDebug.finalizedBy("assembleDebugUnitTest")
     }
 }
 
@@ -100,7 +114,7 @@ dependencies {
     implementation "io.github.inflationx:viewpump:1.0.0"
 
     implementation "com.github.bumptech.glide:glide:4.8.0"
-    annotationProcessor "com.github.bumptech.glide:compiler:4.8.0"
+    kapt "com.github.bumptech.glide:compiler:4.8.0"
     implementation "jp.wasabeef:glide-transformations:3.3.0"
     implementation "jp.co.cyberagent.android.gpuimage:gpuimage-library:1.4.1"
 

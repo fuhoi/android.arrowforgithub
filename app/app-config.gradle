@@ -1,0 +1,36 @@
+ext {
+    SIGNING_CONFIG_KEY_ALIAS = getNamedProperty("SIGNING_CONFIG_KEY_ALIAS")
+    SIGNING_CONFIG_KEY_PASSWORD = getNamedProperty("SIGNING_CONFIG_KEY_PASSWORD")
+    SIGNING_CONFIG_STORE_FILE = getNamedProperty("SIGNING_CONFIG_STORE_FILE")
+    SIGNING_CONFIG_STORE_PASSWORD = getNamedProperty("SIGNING_CONFIG_STORE_PASSWORD")
+}
+
+private String getNamedProperty(String propertyName) {
+    String propertyValue = fromEnv(propertyName)
+    if (propertyValue == null || propertyValue.isEmpty()) {
+        propertyValue = fromFile(propertyName)
+        if (propertyValue == null || propertyValue.isEmpty()) {
+            throw new IllegalStateException("Could not find property: " + propertyName + " value in property file or environment")
+        }
+    }
+    return propertyValue
+}
+
+private String fromEnv(String propertyName) {
+    return System.getenv(propertyName)
+}
+
+private String fromFile(String propertyName) {
+    return loadFileProperties("$projectDir/app-config.properties").getProperty(propertyName)
+}
+
+private Properties loadFileProperties(String fileLocation) {
+    Properties properties = new Properties()
+    try {
+        properties.load(new FileInputStream(fileLocation))
+    } catch (FileNotFoundException ex) {
+        logger.log(LogLevel.ERROR, "Missing file: $fileLocation", ex)
+        throw ex
+    }
+    return properties
+}
