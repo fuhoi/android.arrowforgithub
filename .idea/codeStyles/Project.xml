@@ -61,10 +61,103 @@
     </XML>
     <codeStyleSettings language="XML">
       <option name="RIGHT_MARGIN" value="200" />
+      <option name="FORCE_REARRANGE_MODE" value="1" />
       <option name="SOFT_MARGINS" value="200" />
       <indentOptions>
         <option name="CONTINUATION_INDENT_SIZE" value="4" />
       </indentOptions>
+      <arrangement>
+        <rules>
+          <section>
+            <rule>
+              <match>
+                <NAME>xmlns:android</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>xmlns:.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>android:id</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>.*style.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>android:style</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>android:layout_h.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>android:layout_w.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>android:layout.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>android:.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>.*:layout.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+          <section>
+            <rule>
+              <match>
+                <NAME>.*</NAME>
+              </match>
+              <order>BY_NAME</order>
+            </rule>
+          </section>
+        </rules>
+      </arrangement>
     </codeStyleSettings>
     <codeStyleSettings language="kotlin">
       <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
